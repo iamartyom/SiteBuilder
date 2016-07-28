@@ -55,8 +55,8 @@ namespace SiteBuilder
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "",
-               appSecret: "");
+               appId: "275933566106681",
+               appSecret: "184b03cde2bcc30f395789198ac39ff0");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
