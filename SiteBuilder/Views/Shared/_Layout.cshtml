@@ -21,7 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("@Resources.Resource.LogIn", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -30,6 +30,17 @@
         </div>
     </div>
     <div class="container body-content">
+        <div>
+            @using (Html.BeginForm("ChangeCulture", "Home"))
+            {
+                <select name="lang">
+                    <option disabled selected>@Resources.Resource.Main</option>
+                    <option value="en">English</option>
+                    <option value="ru">Russian</option>
+                </select>
+                <input type="submit" name="submit" value="@Resources.Resource.Main">
+            }
+        </div>
         @RenderBody()
         <hr />
         <footer>
