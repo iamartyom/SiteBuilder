@@ -70,6 +70,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cloud tags.
+        /// </summary>
+        public static string CloudTags {
+            get {
+                return ResourceManager.GetString("CloudTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create user.
+        /// </summary>
+        public static string CreateUser {
+            get {
+                return ResourceManager.GetString("CreateUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to create your own site.
+        /// </summary>
+        public static string DescriptionMainPage {
+            get {
+                return ResourceManager.GetString("DescriptionMainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last created sites.
+        /// </summary>
+        public static string LastCreateSites {
+            get {
+                return ResourceManager.GetString("LastCreateSites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log In.
         /// </summary>
         public static string LogIn {

@@ -1,4 +1,5 @@
 ﻿using SiteBuilder.Filters;
+using SiteBuilder.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,25 +11,36 @@ namespace SiteBuilder.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         [Culture]
         public ActionResult Index()
         {
+            ViewBag.sites = db.Sites.Select(c => c).ToList();
+
             return View();
         }
 
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
-            // Список культур
+
             List<string> cultures = new List<string>() { "en", "ru" };
             if (!cultures.Contains(lang))
             {
                 lang = "en";
             }
-            // Сохраняем выбранную культуру в куки
+
+            SetCookieLocalization(lang);
+
+            return Redirect(returnUrl);
+        }
+
+        public void SetCookieLocalization(string lang)
+        {
             HttpCookie cookie = Request.Cookies["lang"];
             if (cookie != null)
-                cookie.Value = lang;   // если куки уже установлено, то обновляем значение
+                cookie.Value = lang;
             else
             {
 
@@ -38,7 +50,6 @@ namespace SiteBuilder.Controllers
                 cookie.Expires = DateTime.Now.AddYears(1);
             }
             Response.Cookies.Add(cookie);
-            return Redirect(returnUrl);
         }
     }
 }

@@ -120,6 +120,18 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Конструктор сайтов</value>
   </data>
+  <data name="CloudTags" xml:space="preserve">
+    <value>Облако тегов</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Создал пользователь</value>
+  </data>
+  <data name="DescriptionMainPage" xml:space="preserve">
+    <value>создай свой сайт</value>
+  </data>
+  <data name="LastCreateSites" xml:space="preserve">
+    <value>Последние сделанные сайты</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
   </data>
