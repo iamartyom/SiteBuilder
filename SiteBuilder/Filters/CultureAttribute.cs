@@ -18,13 +18,15 @@ namespace SiteBuilder.Filters
             if (cultureCookie != null)
                 cultureName = cultureCookie.Value;
             else
-                cultureName = "ru";
+                cultureName = "en";
+
+            Console.WriteLine("+");
 
             // Список культур
-            List<string> cultures = new List<string>() { "ru", "en", "de" };
+            List<string> cultures = new List<string>() { "en", "ru" };
             if (!cultures.Contains(cultureName))
             {
-                cultureName = "ru";
+                cultureName = "en";
             }
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(cultureName);
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(cultureName);

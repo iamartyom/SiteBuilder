@@ -120,6 +120,18 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Site Builder</value>
   </data>
+  <data name="CloudTags" xml:space="preserve">
+    <value>Cloud tags</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Create user</value>
+  </data>
+  <data name="DescriptionMainPage" xml:space="preserve">
+    <value>create your own site</value>
+  </data>
+  <data name="LastCreateSites" xml:space="preserve">
+    <value>Last created sites</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>

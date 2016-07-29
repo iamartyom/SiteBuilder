@@ -25,6 +25,8 @@ namespace SiteBuilder.Models
         {
         }
 
+        public DbSet<Site> Sites { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
