@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SiteBuilder.Filters;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace SiteBuilder.Controllers
 {
     public class HomeController : Controller
     {
+        [Culture]
         public ActionResult Index()
         {
             return View();
