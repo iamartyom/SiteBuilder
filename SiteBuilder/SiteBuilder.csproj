@@ -202,6 +202,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607291518589_InitialCreate.cs" />
+    <Compile Include="Migrations\201607291518589_InitialCreate.Designer.cs">
+      <DependentUpon>201607291518589_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607291525291_Initial.cs" />
+    <Compile Include="Migrations\201607291525291_Initial.Designer.cs">
+      <DependentUpon>201607291525291_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -289,6 +298,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201607291518589_InitialCreate.resx">
+      <DependentUpon>201607291518589_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607291525291_Initial.resx">
+      <DependentUpon>201607291525291_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
