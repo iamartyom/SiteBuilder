@@ -131,5 +131,14 @@ namespace Resources {
                 return ResourceManager.GetString("Register", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sites.
+        /// </summary>
+        public static string Sites {
+            get {
+                return ResourceManager.GetString("Sites", resourceCulture);
+            }
+        }
     }
 }

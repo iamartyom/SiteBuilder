@@ -141,4 +141,7 @@
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="Sites" xml:space="preserve">
+    <value>Сайты</value>
+  </data>
 </root>
