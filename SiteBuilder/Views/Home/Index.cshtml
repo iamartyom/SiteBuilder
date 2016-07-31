@@ -2,11 +2,46 @@
     ViewBag.Title = Resources.Resource.ApplicationName;
 }
 
-<h1 class="text-center">@Resources.Resource.ApplicationName - @Resources.Resource.DescriptionMainPage</h1>
-<h3 class="text-center">@Resources.Resource.CloudTags<h3>
-<h3 class="text-center">@Resources.Resource.LastCreateSites</h3>
-<br>
-@foreach (var site in @ViewBag.sites)
-{
-    <p class="last-create-site"><a href="#">@site.Name</a> @Resources.Resource.CreateUser - <a href="#">@site.UserId.</a></p><br>
-}
+    <h1 class="text-center">@Resources.Resource.ApplicationName - @Resources.Resource.DescriptionMainPage</h1>
+    
+    <div class="center-block">
+        <div id="tagcloud" style="width: 550px; height: 350px; position: relative;"></div>
+    </div>
+
+    <h3 class="text-center">@Resources.Resource.LastCreateSites</h3>
+    <br>
+    @foreach (var site in @ViewBag.sites)
+    {
+        <p class="last-create-site"><a href="#">@site.Name</a> @Resources.Resource.CreateUser - <a href="#">@site.UserId.</a></p><br>
+    }
+    
+    @section Scripts
+    {
+        @Scripts.Render("~/Scripts/jquery.min.js")
+        @Scripts.Render("~/Scripts/jqcloud.min.js")
+        @Styles.Render("~/Content/jqcloud.min.css")
+
+    <script>
+    var words = [
+      { text: "Lorem", weight: 13, link: 'http://9gag.com' },
+      { text: "Ipsum", weight: 10.5, link: 'http://9gag.com' },
+      { text: "Dolor", weight: 9.4, link: 'http://9gag.com' },
+      { text: "Sit", weight: 8, link: 'http://9gag.com' },
+      { text: "Amet", weight: 6.2, link: 'http://9gag.com' },
+      { text: "Consectetur", weight: 5, link: 'http://9gag.com' },
+      { text: "Adipiscing", weight: 4, link: 'http://9gag.com' },
+      { text: "Lorm", weight: 3, link: 'http://9gag.com' },
+      { text: "Ipum", weight: 2, link: 'http://9gag.com' },
+      { text: "Dlor", weight: 9, link: 'http://9gag.com' },
+      { text: "it", weight: 8.6, link: 'http://9gag.com' },
+      { text: "met", weight: 6, link: 'http://9gag.com' },
+      { text: "Cosectetur", weight: 5.2, link: 'http://9gag.com' },
+      { text: "Adpiscing", weight: 5.3, link: 'http://9gag.com' },
+    ];
+
+    $(document).ready(function() {
+       $("#tagcloud").jQCloud(words);
+    });
+
+    </script>
+    }
