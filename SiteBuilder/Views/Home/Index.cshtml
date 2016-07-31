@@ -9,12 +9,12 @@
     </div>
 
     <h3 class="text-center">@Resources.Resource.LastCreateSites</h3>
-    <br>
-    @foreach (var site in @ViewBag.sites)
+
+    @*@foreach (var site in @ViewBag.sites)
     {
         <p class="last-create-site"><a href="#">@site.Name</a> @Resources.Resource.CreateUser - <a href="#">@site.UserId.</a></p><br>
-    }
-    
+    }*@
+
     @section Scripts
     {
         @Scripts.Render("~/Scripts/jquery.min.js")

@@ -6,7 +6,8 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Styles.Render("~/Content/Flags/css/flag-icon.min.css")
+    @Styles.Render("~/Content/Flags/assets/docs.css")
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -27,32 +28,41 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <div>
-                            @using (Html.BeginForm("ChangeCulture", "Home"))
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            @if (Request.Cookies["lang"].Value == "ru")
                             {
-                                <select name="lang">
-                                    <option disabled selected>@Resources.Resource.Main</option>
-                                    <option value="en">English</option>
-                                    <option value="ru">Russian</option>
-                                </select>
-                                <input type="submit" name="submit" value="@Resources.Resource.Main">
+                                <span class="flag-icon flag-icon-ru"></span>
                             }
-                            </div>
+                            else
+                            {
+                                <span class="flag-icon flag-icon-us"></span>
+                            }
+                            
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href='@Url.Action("ChangeCulture", "Home", new { lang = "en" }, null)'>
+                                    <span class="flag-icon flag-icon-us"></span> English
+                                </a>                           
+                            </li> 
+                            <li>
+                                <a href='@Url.Action("ChangeCulture", "Home", new { lang = "ru" }, null)'>
+                                    <span class="flag-icon flag-icon-ru"></span> Russian
+                                </a>
+                            </li>                           
                         </ul>
                     </li>
 
-                    @Html.Partial("_LoginPartial")
-                </ul>
+                        @Html.Partial("_LoginPartial")
+                    </ul>
 
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+</div>
         </div>
     </nav>
 
