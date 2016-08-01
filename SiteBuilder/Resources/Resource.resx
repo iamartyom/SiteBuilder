@@ -123,23 +123,50 @@
   <data name="CloudTags" xml:space="preserve">
     <value>Cloud tags</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
   <data name="CreateUser" xml:space="preserve">
     <value>Create user</value>
   </data>
   <data name="DescriptionMainPage" xml:space="preserve">
     <value>create your own site</value>
   </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
   <data name="LastCreateSites" xml:space="preserve">
     <value>Last created sites</value>
+  </data>
+  <data name="LocalAccount" xml:space="preserve">
+    <value>Use a local account to log in.</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="LogInSocial" xml:space="preserve">
+    <value>Use social service to log in.</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log off</value>
+  </data>
   <data name="Main" xml:space="preserve">
     <value>Main page</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Create a new account</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="Sites" xml:space="preserve">
     <value>Sites</value>

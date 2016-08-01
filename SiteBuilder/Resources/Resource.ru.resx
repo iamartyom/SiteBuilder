@@ -123,23 +123,50 @@
   <data name="CloudTags" xml:space="preserve">
     <value>Облако тегов</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
   <data name="CreateUser" xml:space="preserve">
     <value>Создал пользователь</value>
   </data>
   <data name="DescriptionMainPage" xml:space="preserve">
     <value>создай свой сайт</value>
   </data>
+  <data name="Find" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Привет</value>
+  </data>
   <data name="LastCreateSites" xml:space="preserve">
     <value>Последние сделанные сайты</value>
+  </data>
+  <data name="LocalAccount" xml:space="preserve">
+    <value>Используйте локальный аккаунт для входа</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
   </data>
+  <data name="LogInSocial" xml:space="preserve">
+    <value>Используйте аккаунт соц сети для входа</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
   <data name="Main" xml:space="preserve">
     <value>Главная страница</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
+  </data>
+  <data name="RegisterNewUser" xml:space="preserve">
+    <value>Создание нового пользователя</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
   </data>
   <data name="Sites" xml:space="preserve">
     <value>Сайты</value>
