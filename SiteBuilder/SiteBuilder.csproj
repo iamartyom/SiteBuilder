@@ -804,6 +804,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SiteBuilder\CreateSite.cshtml" />
     <Content Include="Views\SiteBuilder\CreatePage.cshtml" />
+    <Content Include="Views\SiteBuilder\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

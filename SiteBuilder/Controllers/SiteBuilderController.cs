@@ -38,6 +38,9 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult CreatePage(int id)
         {
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            ViewBag.UserId = user.Id;
             ViewBag.SiteId = id;
             ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).ToList();
 
@@ -51,6 +54,15 @@ namespace SiteBuilder.Controllers
             db.SaveChanges();
 
             return RedirectToAction("CreatePage", "SiteBuilder", new { id = page.SiteId });
+        }
+
+        public ActionResult Show (string user, string nameSite)
+        {
+            int a = Int32.Parse(nameSite);
+
+            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.Id == a).ToList();
+
+            return View();
         }
     }
 }
