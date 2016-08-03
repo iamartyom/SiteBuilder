@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "CreatePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">CreatePage</h2>
+
+<h5 class="text-center">Pages this site</h5>
+@foreach(var Page in ViewBag.Pages)
+{
+    <p class="text-center">@Page.Name</p>
+}
+<p></p>
+
+<form action="" method="post">
+    <input type="hidden" name="SiteId" value="@ViewBag.SiteId">
+    <input type="text" name="Name" /><br>
+    <input type="submit" value="Submit" />
+</form>
+
