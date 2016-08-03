@@ -26,6 +26,7 @@ namespace SiteBuilder.Models
         }
 
         public DbSet<Site> Sites { get; set; }
+        public DbSet<TypeMenu> TypeMenus { get; set; }
 
         public static ApplicationDbContext Create()
         {

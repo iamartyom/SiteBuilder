@@ -31,3 +31,11 @@ textarea {
     line-height: 0.1;
     text-align: center;
 }
+
+div.centre
+{
+  /*width: 200px;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

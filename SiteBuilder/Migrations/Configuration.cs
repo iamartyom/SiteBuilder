@@ -10,7 +10,6 @@ namespace SiteBuilder.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "SiteBuilder.Models.ApplicationDbContext";
         }
 
         protected override void Seed(SiteBuilder.Models.ApplicationDbContext context)

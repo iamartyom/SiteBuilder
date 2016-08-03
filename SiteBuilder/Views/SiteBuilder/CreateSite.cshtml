@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "CreateSite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Create Site</h2>
+<form action="" method="post">
+    <input type="text" name="Name" /><br>
+    <select name="TypeMenuId">
+        @foreach (var TypeMenu in ViewBag.TypeMenus)
+        {
+            <option value="@TypeMenu.Id">@TypeMenu.Name</option>
+        }
+    </select><br>
+    <input type="submit" value="Submit" />
+</form>
+
