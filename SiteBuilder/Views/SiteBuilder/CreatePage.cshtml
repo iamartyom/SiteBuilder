@@ -1,23 +1,34 @@
-﻿
+﻿@model SiteBuilder.Models.Page
+
 @{
     ViewBag.Title = "CreatePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">CreatePage</h2>
+<h2>CreatePage</h2>
 
 <h5 class="text-center">Pages this site</h5>
-@foreach(var Page in ViewBag.Pages)
+@foreach (var Page in ViewBag.Pages)
 {
     <p class="text-center">@Page.Name</p>
 }
-<p></p>
 
-<form action="" method="post">
-    <input type="hidden" name="SiteId" value="@ViewBag.SiteId">
-    <input type="text" name="Name" /><br>
-    <input type="submit" value="Submit" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId})
+                <div class="form-group">
+                    <label>Name</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text" })
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            }
+        </div>
+    </div>
+</div>
 
 <a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/">View site</a>
 

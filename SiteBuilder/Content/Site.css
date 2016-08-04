@@ -39,3 +39,11 @@ div.centre
   margin-left: auto;
   margin-right: auto;
 }
+
+.center {
+    text-align:center;
+}
+
+.center form {
+    display:inline-block;
+}

@@ -18,29 +18,37 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult CreateSite()
         {
+            ViewBag.UserId = UserId();
             ViewBag.TypeMenus = db.TypeMenus.Select(c => c).ToList();
 
             return View();
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreateSite(Site site)
+        public ActionResult CreateSite(Site site)
         {
+            ViewBag.TypeMenus = db.TypeMenus.Select(c => c).ToList();
+
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             site.UserId = user.Id;
 
-            db.Sites.Add(site);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Sites.Add(site);
+                db.SaveChanges();
 
-            return RedirectToAction("CreatePage", "SiteBuilder", new { id = site.Id });
+                return RedirectToAction("CreatePage", "SiteBuilder", new { id = site.Id });
+            }
+            else
+            {
+                return CreateSite();
+            }
         }
 
         [HttpGet]
         public ActionResult CreatePage(int id)
         {
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-
-            ViewBag.UserId = user.Id;
+            ViewBag.UserId = UserId();
             ViewBag.SiteId = id;
             ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).ToList();
 
@@ -48,12 +56,19 @@ namespace SiteBuilder.Controllers
         }
 
         [HttpPost]
-        public RedirectToRouteResult CreatePage(Page page)
+        public ActionResult CreatePage(Page page)
         {
-            db.Pages.Add(page);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Pages.Add(page);
+                db.SaveChanges();
 
-            return RedirectToAction("CreatePage", "SiteBuilder", new { id = page.SiteId });
+                return RedirectToAction("CreatePage", "SiteBuilder", new { id = page.SiteId });
+            }
+            else
+            {
+                return CreatePage(page.SiteId);
+            }
         }
 
         public ActionResult Show (string user, string nameSite)
@@ -63,6 +78,12 @@ namespace SiteBuilder.Controllers
             ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.Id == a).ToList();
 
             return View();
+        }
+
+        public string UserId()
+        {
+            ApplicationUser User = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            return User.Id;
         }
     }
 }

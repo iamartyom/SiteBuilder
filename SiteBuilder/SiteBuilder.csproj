@@ -203,11 +203,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608031524431_Initial.cs" />
-    <Compile Include="Migrations\201608031524431_Initial.Designer.cs">
-      <DependentUpon>201608031524431_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -802,9 +797,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SiteBuilder\Show.cshtml" />
     <Content Include="Views\SiteBuilder\CreateSite.cshtml" />
     <Content Include="Views\SiteBuilder\CreatePage.cshtml" />
-    <Content Include="Views\SiteBuilder\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -818,9 +813,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608031524431_Initial.resx">
-      <DependentUpon>201608031524431_Initial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
