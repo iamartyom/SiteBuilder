@@ -800,6 +800,9 @@
     <Content Include="Views\SiteBuilder\Show.cshtml" />
     <Content Include="Views\SiteBuilder\CreateSite.cshtml" />
     <Content Include="Views\SiteBuilder\CreatePage.cshtml" />
+    <Content Include="Views\Shared\Template\Template1.cshtml" />
+    <Content Include="Views\Shared\Template\Template2.cshtml" />
+    <Content Include="Views\Shared\Template\Template3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

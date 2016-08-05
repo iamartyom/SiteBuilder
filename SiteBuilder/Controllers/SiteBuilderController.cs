@@ -85,5 +85,11 @@ namespace SiteBuilder.Controllers
             ApplicationUser User = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             return User.Id;
         }
+
+        [HttpPost]
+        public ActionResult LoadTemplate(string nameTemplate)
+        {
+            return PartialView("Template/" + nameTemplate);
+        }
     }
 }
