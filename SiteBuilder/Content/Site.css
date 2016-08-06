@@ -47,3 +47,25 @@ div.centre
 .center form {
     display:inline-block;
 }
+
+.bigBlock {
+    height: 220px;
+    background-color: #e6e6e6;
+    margin: 10px;
+}
+
+.smallBlock {
+    width: 48%;
+    display: inline-block;
+    height: 220px;
+    background-color: #e6e6e6;
+    margin: 10px;
+}
+
+.containerBlocks {
+    overflow: hidden;
+}
+
+.elements {
+    white-space: nowrap;
+}
