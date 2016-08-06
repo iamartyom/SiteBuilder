@@ -35,9 +35,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                                <span class="flag-icon flag-icon-ru"></span>
-                            
-                                <span class="flag-icon flag-icon-us"></span>
+                                @if (Request.Cookies["lang"] != null && Request.Cookies["lang"].Value == "ru")
+                                {
+                                    <span class="flag-icon flag-icon-ru"></span>
+                                }
+                                else
+                                {
+                                    <span class="flag-icon flag-icon-us"></span>
+                                }
                         </a>
                         <ul class="dropdown-menu">
                             <li>
