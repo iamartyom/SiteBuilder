@@ -8,12 +8,6 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Flags/css/flag-icon.min.css")
     @Styles.Render("~/Content/Flags/assets/docs.css")
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("Scripts", required: false)
-
-    
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -79,5 +73,9 @@
             <p>&copy; @DateTime.Now.Year - @Resources.Resource.ApplicationName</p>
         </footer>
     </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
