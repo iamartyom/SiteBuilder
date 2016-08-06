@@ -10,10 +10,20 @@
     @Styles.Render("~/Content/Flags/assets/docs.css")
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 
-    
+<script>
+  $( function() {
+    $( "#draggable" ).draggable();
+    $( "#food" ).droppable({
+      drop: function( event, ui ) {
+          alert("+");
+      }
+    });
+  } );
+</script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
