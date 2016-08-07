@@ -77,3 +77,13 @@ div.centre
 .button-center button {
     display: inline-block;
 }
+
+.bigBlock img {
+    display:block;
+    margin:auto;
+}
+
+.smallBlock img {
+    display:block;
+    margin:auto;
+}
