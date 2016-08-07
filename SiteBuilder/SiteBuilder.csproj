@@ -809,6 +809,7 @@
     <Content Include="Views\Shared\Template\Template1.cshtml" />
     <Content Include="Views\Shared\Template\Template2.cshtml" />
     <Content Include="Views\Shared\Template\Template3.cshtml" />
+    <Content Include="Views\Shared\_LayoutCreatePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

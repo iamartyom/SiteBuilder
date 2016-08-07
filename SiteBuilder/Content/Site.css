@@ -49,7 +49,7 @@ div.centre
 }
 
 .bigBlock {
-    height: 220px;
+    height: 260px;
     background-color: #e6e6e6;
     margin: 10px;
 }
@@ -57,7 +57,7 @@ div.centre
 .smallBlock {
     width: 48%;
     display: inline-block;
-    height: 220px;
+    height: 260px;
     background-color: #e6e6e6;
     margin: 10px;
 }
