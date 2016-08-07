@@ -69,3 +69,11 @@ div.centre
 .elements {
     white-space: nowrap;
 }
+
+.button-center {
+    text-align: center;
+}
+
+.button-center button {
+    display: inline-block;
+}

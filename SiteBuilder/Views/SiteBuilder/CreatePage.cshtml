@@ -2,11 +2,10 @@
 
 @{
     ViewBag.Title = "CreatePage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutCreatePage.cshtml";
 }
 
-
-<h2>CreatePage</h2>
+<h2 class="text-center">CreatePage</h2><br>
 
 <h5 class="text-center">Pages this site</h5>
 @foreach (var Page in ViewBag.Pages)
@@ -31,47 +30,17 @@
     </div>
 </div>
 
+<h4 class="text-center">Type layout:</h4>
+<div class="button-center">
+<button type="button" class="btn btn-info" id="template1" onclick="loadTemplate(this)">1</button>
+<button type="button" class="btn btn-info" id="template2" onclick="loadTemplate(this)">2</button>
+<button type="button" class="btn btn-info" id="template3" onclick="loadTemplate(this)">3</button>
+</div>
+
 <h4 class="text-center">Add content:</h4>
+<img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="draggable" />
 
 <div id="layout"></div>
 
-<h4 class="text-center" id="droppable">Type layout:</h4>
-<button id="template1" onclick="loadTemplate(this)">1</button>
-<button id="template2" onclick="loadTemplate(this)">1</button>
-<button id="template3" onclick="loadTemplate(this)">1</button>
-
-
 <a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/">View site</a>
 
-
-@section Scripts
-    {
-
-@Scripts.Render("~/bundles/jquery-ui")
-
-<script>
-    $(function () {
-        $("#draggable").draggable();
-        $("#droppable").droppable({
-            drop: function (event, ui) {
-                $(this)
-                  .find("p")
-                    .html("Dropped!");
-            }
-        });
-    });
-
-    function loadTemplate(e) {
-        $.ajax({
-            type: 'POST',
-            url: "/SiteBuilder/LoadTemplate",
-            data: { nameTemplate: e.id },
-            success: function (data) {
-                $("#layout").empty();
-                $("#layout").html(data);
-                $("#layout").find("div").attr('id', 'droppable');
-            }
-        });
-    }
-</script>
-}

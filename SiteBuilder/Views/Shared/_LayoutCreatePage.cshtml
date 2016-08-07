@@ -12,18 +12,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jquery-ui")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/loadtemplate")
     @RenderSection("Scripts", required: false)
-    <script>
-        $(function () {
-            $('#draggable').draggable();
-
-            $('#droppable').droppable({
-                drop: function () {
-                    alert('+');
-                },
-            });
-        });
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">

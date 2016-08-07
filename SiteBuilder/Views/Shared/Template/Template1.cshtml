@@ -1,32 +1,9 @@
-﻿
-<script>
-    $(function () {
-
-        $("#draggable").draggable();
-
-        $("#droppable").droppable({
-            drop: function (event, ui) {
-                $(this)
-                  .addClass("ui-state-highlight")
-                  .find("p")
-                    .html("Dropped!");
-            }
-        });
-    });
-</script>
-
-<div id="draggable" class="lol1">
-    <p>Drag me to my target</p>
-</div>
-
-<div id="droppable" class="lol">
-    <p>Drop here</p>
-</div>
+﻿@Scripts.Render("~/bundles/dragndrop")
 
 <div class="containerBlocks">
     <div class="elements">
-        <div class="smallBlock" id="droppable"></div>
-        <div class="smallBlock" id="droppable"></div>
+        <div class="smallBlock" id="droppable1"></div>
+        <div class="smallBlock" id="droppable2"></div>
     </div>
 </div>
-<div class="bigBlock" id="droppable"></div>
+<div class="bigBlock" id="droppable3"></div>
