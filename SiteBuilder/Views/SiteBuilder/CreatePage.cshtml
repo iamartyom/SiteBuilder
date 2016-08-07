@@ -2,23 +2,9 @@
 
 @{
     ViewBag.Title = "CreatePage";
-    Layout = "~/Views/Shared/_LayoutCreatePage.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script>
-    function loadTemplate(e) {
-        $.ajax({
-            type: 'POST',
-            url: "/SiteBuilder/LoadTemplate",
-            data: { nameTemplate: e.id },
-            success: function (data) {
-                $("#layout").empty();
-                $("#layout").html(data);
-                $("#layout").find("div").attr('id', 'droppable');
-            }
-        });
-    }
-</script>
 
 <h2>CreatePage</h2>
 
@@ -45,15 +31,47 @@
     </div>
 </div>
 
+<h4 class="text-center">Add content:</h4>
+
+<div id="layout"></div>
+
 <h4 class="text-center" id="droppable">Type layout:</h4>
 <button id="template1" onclick="loadTemplate(this)">1</button>
 <button id="template2" onclick="loadTemplate(this)">1</button>
 <button id="template3" onclick="loadTemplate(this)">1</button>
 
-<h4 class="text-center">Add content:</h4>
-<h1 id="draggable">Image</h1>
-
-<div id="layout"></div>
 
 <a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/">View site</a>
 
+
+@section Scripts
+    {
+
+@Scripts.Render("~/bundles/jquery-ui")
+
+<script>
+    $(function () {
+        $("#draggable").draggable();
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this)
+                  .find("p")
+                    .html("Dropped!");
+            }
+        });
+    });
+
+    function loadTemplate(e) {
+        $.ajax({
+            type: 'POST',
+            url: "/SiteBuilder/LoadTemplate",
+            data: { nameTemplate: e.id },
+            success: function (data) {
+                $("#layout").empty();
+                $("#layout").html(data);
+                $("#layout").find("div").attr('id', 'droppable');
+            }
+        });
+    }
+</script>
+}

@@ -1,4 +1,29 @@
-﻿<div class="containerBlocks">
+﻿
+<script>
+    $(function () {
+
+        $("#draggable").draggable();
+
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this)
+                  .addClass("ui-state-highlight")
+                  .find("p")
+                    .html("Dropped!");
+            }
+        });
+    });
+</script>
+
+<div id="draggable" class="lol1">
+    <p>Drag me to my target</p>
+</div>
+
+<div id="droppable" class="lol">
+    <p>Drop here</p>
+</div>
+
+<div class="containerBlocks">
     <div class="elements">
         <div class="smallBlock" id="droppable"></div>
         <div class="smallBlock" id="droppable"></div>
