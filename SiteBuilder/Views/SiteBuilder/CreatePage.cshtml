@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
             {
                 @Html.ValidationSummary()
                 @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId})
@@ -24,7 +24,7 @@
                     <label>Name</label>
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text" })
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="button" onclick="submitForm()" class="btn btn-default">Submit</button>
             }
         </div>
     </div>
@@ -38,7 +38,10 @@
 </div>
 
 <h4 class="text-center">Add content:</h4>
-<img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="draggable" />
+<div class="text-center">
+    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
+    <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
+</div>
 
 <div id="layout"></div>
 

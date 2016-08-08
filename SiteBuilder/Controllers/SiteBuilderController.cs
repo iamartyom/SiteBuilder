@@ -91,5 +91,15 @@ namespace SiteBuilder.Controllers
         {
             return PartialView("Template/" + nameTemplate);
         }
+
+        [HttpPost]
+        public void SaveData(Content content)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contents.Add(content);
+                db.SaveChanges();
+            }
+        }
     }
 }
