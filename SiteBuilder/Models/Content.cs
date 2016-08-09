@@ -9,8 +9,8 @@ namespace SiteBuilder.Models
     {
         public int Id { get; set; }
         public int PageId { get; set; }
-        public int TemplateId { get; set; }
-        public string ContentTypeId { get; set; }
+        public int Position { get; set; }
+        public int ContentTypeId { get; set; }
         public string Data { get; set; }
     }
 }

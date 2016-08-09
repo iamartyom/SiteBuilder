@@ -58,17 +58,7 @@ namespace SiteBuilder.Controllers
         [HttpPost]
         public ActionResult CreatePage(Page page)
         {
-            if (ModelState.IsValid)
-            {
-                db.Pages.Add(page);
-                db.SaveChanges();
-
-                return RedirectToAction("CreatePage", "SiteBuilder", new { id = page.SiteId });
-            }
-            else
-            {
-                return CreatePage(page.SiteId);
-            }
+            return CreatePage(page.SiteId);
         }
 
         public ActionResult Show (string user, string nameSite)
@@ -93,13 +83,24 @@ namespace SiteBuilder.Controllers
         }
 
         [HttpPost]
-        public void SaveData(Content content)
+        public int SavePage(Page page)
         {
             if (ModelState.IsValid)
             {
-                db.Contents.Add(content);
+                db.Pages.Add(page);
                 db.SaveChanges();
+
+                return page.Id;
             }
+
+            return -1;
+        }
+
+        [HttpPost]
+        public void SaveData(Content content)
+        {
+            db.Contents.Add(content);
+            db.SaveChanges();
         }
     }
 }

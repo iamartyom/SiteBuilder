@@ -9,10 +9,8 @@ namespace SiteBuilder.Models
     public class Page
     {
         public int Id { get; set; }
-        [Required]
         public int SiteId { get; set; }
         public int TemplateId { get; set; }
-        [Required]
         public string Name { get; set; }
     }
 }

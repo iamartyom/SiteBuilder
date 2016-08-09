@@ -12,9 +12,8 @@
             }
             else {
                 var src = prompt("Add link youtube video");
-                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width()/4*3 + '" src="' + src + '" frameborder="0" allowfullscreen></iframe>'
+                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width()/4*3 + '" src="' + src + '" frameborder="0" class="2"></iframe>'
                 add(this, code);
-                saveData(src, '2');
             }
         },
     });
@@ -25,7 +24,7 @@ function uploadImage(element) {
       function (error, result) { console.log(error, result) });
 
     $(document).one('cloudinarywidgetsuccess', function (e, data) {
-        var code = '<img src="' + data[0].secure_url + '" width="' + $(element).width() + '" />'
+        var code = "<img src='" + data[0].secure_url + "' width='" + $(element).width() + "' class='1' />"
         add(element, code);
     });
 }
@@ -45,7 +44,7 @@ function submitForm() {
     }
 
     if (result == 3) {
-        $("#formPage").submit();
+        savePage($('#inputSiteId').attr('value'), $('#inputPageName').val());
     }
     else {
         alert('Please insert data in layout.');
@@ -61,20 +60,44 @@ function checkEmpty(element) {
     }
 }
 
-function saveData(src, type) {
+function savePage(siteId, name) {
+    $.ajax({
+        type: 'POST',
+        url: "/SiteBuilder/SavePage",
+        data: {
+            SiteId: siteId,
+            TemplateId: $('.template').attr('id'),
+            Name: name,
+        },
+        success: function (data) {
+            for (var i = 1; i < 4; i++) {
+                alert("#droppable" + i.toString());
+                saveData(data, i, "#droppable" + i.toString());
+            }
+
+            $("#formPage").submit();
+        },
+        error: function (data) {
+            alert('Error save page. Please refresh page.');
+        }
+    });
+}
+
+function saveData(id, position, tagId) {
     $.ajax({
         type: 'POST',
         url: "/SiteBuilder/SaveData",
         data: {
-            TemplateId: $('template').attr('id'),
-            Data: src,
-            ContentType: type,
+            PageId: id,
+            Position: position,
+            Data: $(tagId).children(':first').attr('src'),
+            ContentTypeId: $(tagId).children(':first').attr('class'),
         },
         success: function (data) {
-            alert('+');
+            alert("+");
         },
         error: function (data) {
-            alert('Error. Please refresh page.');
+            alert("Error save data. Please refresh page." + $(tagId).html().replace(/"/g,"'"));
         }
     });
 }

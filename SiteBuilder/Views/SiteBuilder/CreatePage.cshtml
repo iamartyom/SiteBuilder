@@ -19,10 +19,10 @@
             @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
             {
                 @Html.ValidationSummary()
-                @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId})
+                @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId, id="inputSiteId"})
                 <div class="form-group">
                     <label>Name</label>
-                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text" })
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id="inputPageName" })
                 </div>
                 <button type="button" onclick="submitForm()" class="btn btn-default">Submit</button>
             }
