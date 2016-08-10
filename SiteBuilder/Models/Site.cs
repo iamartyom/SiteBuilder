@@ -20,5 +20,6 @@ namespace SiteBuilder.Models
 
         public virtual ICollection<Page> Pages { get; set; }
         public virtual TypeMenu TypeMenu { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

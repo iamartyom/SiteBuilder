@@ -203,9 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608101637189_initial.cs" />
-    <Compile Include="Migrations\201608101637189_initial.Designer.cs">
-      <DependentUpon>201608101637189_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201608101743373_initial.cs" />
+    <Compile Include="Migrations\201608101743373_initial.Designer.cs">
+      <DependentUpon>201608101743373_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -773,6 +773,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\loadStartTemplate.js" />
     <Content Include="Scripts\loadTemplate.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -832,8 +833,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608101637189_initial.resx">
-      <DependentUpon>201608101637189_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608101743373_initial.resx">
+      <DependentUpon>201608101743373_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

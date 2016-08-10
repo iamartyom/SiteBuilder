@@ -13,7 +13,7 @@ namespace SiteBuilder.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608101637189_initial"; }
+            get { return "201608101743373_initial"; }
         }
         
         string IMigrationMetadata.Source

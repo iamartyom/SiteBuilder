@@ -71,7 +71,6 @@ function savePage(siteId, name) {
         },
         success: function (data) {
             for (var i = 1; i < 4; i++) {
-                alert("#droppable" + i.toString());
                 saveData(data, i, "#droppable" + i.toString());
             }
 

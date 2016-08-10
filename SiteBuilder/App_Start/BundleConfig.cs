@@ -20,6 +20,9 @@ namespace SiteBuilder
             bundles.Add(new ScriptBundle("~/bundles/dragndrop").Include(
                         "~/Scripts/DragNDrop.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/loadstarttemplate").Include(
+                        "~/Scripts/loadStartTemplate.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/loadtemplate").Include(
                         "~/Scripts/loadTemplate.js"));
 

@@ -63,7 +63,11 @@ namespace SiteBuilder.Controllers
 
         public ActionResult Show (string user, string nameSite, string page)
         {
-            ViewBag.Description = db.Sites.Where(c => c.Name == nameSite).Select(c => c).First();
+            var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
+            var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().ToList();
+            var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().ToList();
+
+            ViewBag.Content = contentList;
 
             return View();
         }
