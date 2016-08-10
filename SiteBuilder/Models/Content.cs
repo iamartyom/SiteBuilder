@@ -12,5 +12,8 @@ namespace SiteBuilder.Models
         public int Position { get; set; }
         public int ContentTypeId { get; set; }
         public string Data { get; set; }
+
+        public virtual Page Page { get; set; }
+        public virtual ContentType ContentType { get; set; }
     }
 }

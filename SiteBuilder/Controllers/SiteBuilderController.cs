@@ -61,11 +61,9 @@ namespace SiteBuilder.Controllers
             return CreatePage(page.SiteId);
         }
 
-        public ActionResult Show (string user, string nameSite)
+        public ActionResult Show (string user, string nameSite, string page)
         {
-            int a = Int32.Parse(nameSite);
-
-            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.Id == a).ToList();
+            ViewBag.Description = db.Sites.Where(c => c.Name == nameSite).Select(c => c).First();
 
             return View();
         }

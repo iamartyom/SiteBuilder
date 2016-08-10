@@ -17,5 +17,8 @@ namespace SiteBuilder.Models
         public string Description { get; set; }
         [Required]
         public string TypeMenuId { get; set; }
+
+        public virtual ICollection<Page> Pages { get; set; }
+        public virtual TypeMenu TypeMenu { get; set; }
     }
 }

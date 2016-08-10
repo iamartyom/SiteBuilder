@@ -14,7 +14,7 @@ namespace SiteBuilder
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(name: "ShowUserSite", url: "{controller}/{action}/{user}/{nameSite}", defaults: new { user = UrlParameter.Optional, nameSite = UrlParameter.Optional });
+            routes.MapRoute(name: "ShowUserSite", url: "{controller}/{action}/{user}/{nameSite}/{page}", defaults: new { user = UrlParameter.Optional, nameSite = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

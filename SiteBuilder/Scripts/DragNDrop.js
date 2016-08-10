@@ -94,10 +94,10 @@ function saveData(id, position, tagId) {
             ContentTypeId: $(tagId).children(':first').attr('class'),
         },
         success: function (data) {
-            alert("+");
+            //
         },
         error: function (data) {
-            alert("Error save data. Please refresh page." + $(tagId).html().replace(/"/g,"'"));
+            alert("Error save data. Please refresh page.");
         }
     });
 }
