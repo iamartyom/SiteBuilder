@@ -68,7 +68,7 @@
                 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
             {
                     @Html.ValidationSummary()
-                    @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId, id = "inputSiteId" })
+                    @Html.HiddenFor(x => x.SiteId, new { Value = @ViewBag.SiteId, id = "inputSiteId" })
                     <div class="form-group">
                         <label>Name</label>
                         @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id = "inputPageName" })
@@ -93,6 +93,4 @@
     </div>
 
     <div id="layout"></div>
-
-    <a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/Main/">View site</a>
 

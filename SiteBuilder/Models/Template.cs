@@ -9,7 +9,7 @@ namespace SiteBuilder.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int countBlocks { get; set; }
+        public int CountBlocks { get; set; }
 
         public virtual ICollection<Page> Pages { get; set; }
     }

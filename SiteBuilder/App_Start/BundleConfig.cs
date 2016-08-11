@@ -17,6 +17,9 @@ namespace SiteBuilder
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/showpagesite").Include(
+                        "~/Scripts/showPageSite.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/dragndrop").Include(
                         "~/Scripts/DragNDrop.js"));
 

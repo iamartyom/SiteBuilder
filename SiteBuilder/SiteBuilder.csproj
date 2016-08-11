@@ -203,9 +203,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608111057398_initial.cs" />
-    <Compile Include="Migrations\201608111057398_initial.Designer.cs">
-      <DependentUpon>201608111057398_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201608111220547_initial.cs" />
+    <Compile Include="Migrations\201608111220547_initial.Designer.cs">
+      <DependentUpon>201608111220547_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -776,6 +776,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showPageSite.js" />
     <Content Include="Scripts\zepto.dragswap.js" />
     <Content Include="Scripts\zepto.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -820,6 +821,7 @@
     <Content Include="Views\Shared\Template\Template2.cshtml" />
     <Content Include="Views\Shared\Template\Template3.cshtml" />
     <Content Include="Views\Shared\_LayoutCreatePage.cshtml" />
+    <Content Include="Views\Shared\_LayoutShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -833,8 +835,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608111057398_initial.resx">
-      <DependentUpon>201608111057398_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608111220547_initial.resx">
+      <DependentUpon>201608111220547_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

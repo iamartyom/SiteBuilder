@@ -50,6 +50,9 @@ namespace SiteBuilder.Controllers
         {
             ViewBag.UserId = UserId();
             ViewBag.SiteId = id;
+            var siteData = db.Sites.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
+            string siteName = siteData.Name.ToString();
+            ViewBag.SiteName = siteName;
             ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).ToList();
 
             return View();
@@ -67,8 +70,13 @@ namespace SiteBuilder.Controllers
             var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().ToList();
             var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().ToList();
 
-            ViewBag.Content = contentList;
+            ViewBag.pages = pageList;
+            ViewBag.content = contentList;
+            ViewBag.user = user;
+            ViewBag.nameSite = nameSite;
 
+            ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
+            
             return View();
         }
 

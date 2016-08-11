@@ -7,12 +7,10 @@ namespace SiteBuilder.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Pages", "PageNumber", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Pages", "PageNumber");
         }
     }
 }

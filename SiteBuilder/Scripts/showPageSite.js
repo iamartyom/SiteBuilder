@@ -2,10 +2,8 @@
     $.ajax({
         type: 'POST',
         url: "/SiteBuilder/LoadTemplate",
-        data: { nameTemplate: "template1" },
+        data: { nameTemplate: document.getElementById('templateName').value },
         success: function (data) {
-            alert('+');
-
             $("#layout").empty();
             $("#layout").html(data);
         }
