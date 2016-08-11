@@ -11,7 +11,7 @@ namespace SiteBuilder.Models
         public int Id { get; set; }
         public int SiteId { get; set; }
         public int TemplateId { get; set; }
-        //public string PageNumber { get; set; }
+        public string PageNumber { get; set; }
         public string Name { get; set; }
 
         public virtual Site Site { get; set; }

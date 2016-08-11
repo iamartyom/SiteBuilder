@@ -73,7 +73,7 @@
                         <label>Name</label>
                         @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id = "inputPageName" })
                     </div>
-                    <button type="button" onclick="submitForm()" class="btn btn-default">Submit</button>
+                    <button type="button" onclick="submitForm(@Enumerable.Count(ViewBag.Pages)+1)" class="btn btn-default">Submit</button>
                 }
             </div>
         </div>

@@ -35,7 +35,7 @@ function add(element, code) {
     $(element).height("100%");
 }
 
-function submitForm() {
+function submitForm(pageNumber) {
 
     var result = 0;
 
@@ -44,7 +44,7 @@ function submitForm() {
     }
 
     if (result == 3) {
-        savePage($('#inputSiteId').attr('value'), $('#inputPageName').val());
+        savePage($('#inputSiteId').attr('value'), $('#inputPageName').val(), pageNumber);
     }
     else {
         alert('Please insert data in layout.');
@@ -60,13 +60,14 @@ function checkEmpty(element) {
     }
 }
 
-function savePage(siteId, name) {
+function savePage(siteId, name, pageNumber) {
     $.ajax({
         type: 'POST',
         url: "/SiteBuilder/SavePage",
         data: {
             SiteId: siteId,
             TemplateId: $('.template').attr('id'),
+            PageNumber: pageNumber,
             Name: name,
         },
         success: function (data) {
