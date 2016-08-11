@@ -19,9 +19,9 @@ namespace SiteBuilder
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer<ApplicationDbContext>(new DataInitializer());
-            ApplicationDbContext db = new ApplicationDbContext();
-            db.Database.Initialize(true);
+            //Database.SetInitializer<ApplicationDbContext>(new DataInitializer());
+            //ApplicationDbContext db = new ApplicationDbContext();
+            //db.Database.Initialize(true);
         }
     }
 }

@@ -5,45 +5,94 @@
     Layout = "~/Views/Shared/_LayoutCreatePage.cshtml";
 }
 
+ @section Scripts {
+    <script src="~/Scripts/zepto.min.js"></script>
+    <script src="~/Scripts/zepto.dragswap.js"></script>
+    <link href="~/Content/CreatePage.css" rel="stylesheet" />
+    @*<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>*@
+    <script>
+	$(function() {
+
+        Zepto('.sortable_exclude_dynamic').dragswap({
+            element : 'li',
+			dropAnimation: true,
+            exclude : ['.correct', '.empty']
+		});
+
+        $('.sortable_exclude_dynamic').append(
+            '<li id="item1">Item 1</li>'
+			+'<li id="item2">Item 2</li>'
+			+'<li id="item3" class="correct">Item 3</li>'
+            +'<li id="item4">Item 4</li>'
+			+'<li id="item5" class="empty"></li>'
+			+'<li id="item6" class="correct">Item 6</li>'
+			+'<li id="item7" class="correct">Item 7</li>');
+
+        Zepto('.sortable').dragswap({
+            element : 'li',
+			dropAnimation: true
+		});
+
+		Zepto('.funcs').dragswap({
+			dropAnimation: false,
+			dropComplete: function() {
+			    var sortArray = Zepto('.funcs').dragswap('toArray');
+				$('#arrayResults').html('['+sortArray.join(',')+']');
+				var sortJSON = Zepto('.funcs').dragswap('toJSON');
+				$('#jsonResults').html(sortJSON);
+			}
+		});
+	});
+</script>
+}
+
 <h2 class="text-center">CreatePage</h2><br>
 
 <h5 class="text-center">Pages this site</h5>
-@foreach (var Page in ViewBag.Pages)
-{
-    <p class="text-center">@Page.Name</p>
-}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
+<section>
+    <h2>Functions <em>toArray</em> <span id="arrayResults"></span></h2>
+    <h2><em>toJSON</em> <span id="jsonResults"></span></h2>
+    <ul class="funcs">
+        @foreach (var Page in ViewBag.Pages)
+        {
+            <li id="@Page.Id" class="text-center">@Page.Name</li>
+        }
+    </ul>
+</section>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
             {
-                @Html.ValidationSummary()
-                @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId, id="inputSiteId"})
-                <div class="form-group">
-                    <label>Name</label>
-                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id="inputPageName" })
-                </div>
-                <button type="button" onclick="submitForm()" class="btn btn-default">Submit</button>
-            }
+                    @Html.ValidationSummary()
+                    @Html.HiddenFor(x => x.SiteId, new { Value = ViewBag.SiteId, id = "inputSiteId" })
+                    <div class="form-group">
+                        <label>Name</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id = "inputPageName" })
+                    </div>
+                    <button type="button" onclick="submitForm()" class="btn btn-default">Submit</button>
+                }
+            </div>
         </div>
     </div>
-</div>
 
-<h4 class="text-center">Type layout:</h4>
-<div class="button-center">
-<button type="button" class="btn btn-info" id="template1" onclick="loadTemplate(this)">1</button>
-<button type="button" class="btn btn-info" id="template2" onclick="loadTemplate(this)">2</button>
-<button type="button" class="btn btn-info" id="template3" onclick="loadTemplate(this)">3</button>
-</div>
+    <h4 class="text-center">Type layout:</h4>
+    <div class="button-center">
+        <button type="button" class="btn btn-info" id="template1" onclick="loadTemplate(this)">1</button>
+        <button type="button" class="btn btn-info" id="template2" onclick="loadTemplate(this)">2</button>
+        <button type="button" class="btn btn-info" id="template3" onclick="loadTemplate(this)">3</button>
+    </div>
 
-<h4 class="text-center">Add content:</h4>
-<div class="text-center">
-    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
-    <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
-</div>
+    <h4 class="text-center">Add content:</h4>
+    <div class="text-center">
+        <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
+        <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
+    </div>
 
-<div id="layout"></div>
+    <div id="layout"></div>
 
-<a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/Main/">View site</a>
+    <a href="/SiteBuilder/Show/@ViewBag.UserId/@ViewBag.SiteId/Main/">View site</a>
 
