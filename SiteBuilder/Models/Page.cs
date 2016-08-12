@@ -16,6 +16,6 @@ namespace SiteBuilder.Models
 
         public virtual Site Site { get; set; }
         public virtual Template Template { get; set; }
-        public virtual ICollection<Content> Contents { get; set; }
+        public virtual IList<Content> Contents { get; set; }
     }
 }

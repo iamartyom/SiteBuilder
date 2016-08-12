@@ -53,7 +53,7 @@ namespace SiteBuilder.Controllers
             var siteData = db.Sites.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
             string siteName = siteData.Name.ToString();
             ViewBag.SiteName = siteName;
-            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).ToList();
+            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).OrderBy(c => c.PageNumber).ToList();
 
             return View();
         }
@@ -69,8 +69,8 @@ namespace SiteBuilder.Controllers
             try
             {
                 var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
-                var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().ToList();
-                var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().ToList();
+                var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().OrderBy(c => c.PageNumber).ToList();
+                var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();
 
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;

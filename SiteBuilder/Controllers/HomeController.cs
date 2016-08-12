@@ -16,7 +16,7 @@ namespace SiteBuilder.Controllers
         [Culture]
         public ActionResult Index()
         {
-            ViewBag.sites = db.Sites.Select(c => c);
+            ViewBag.sites = db.Sites.Select(c => c).ToList();
 
             return View();
         }

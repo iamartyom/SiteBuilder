@@ -25,7 +25,6 @@ function addContent() {
         switch (contentType) {
             case 'Image':
                 templateContent = '<img src="' + data + '" width="' + widthBlock + '" />'
-                alert(templateContent);
                 break;
             case 'Video':
                 templateContent = '<iframe width="' + widthBlock + '" height = "' + widthBlock / 4 * 3 + '" src="' + data + '" frameborder="0" class="2"></iframe>';
