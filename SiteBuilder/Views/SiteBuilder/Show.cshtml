@@ -3,21 +3,21 @@
     Layout = "~/Views/Shared/_LayoutShow.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Show</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jquery-ui")
-    @Scripts.Render("~/bundles/showpagesite")
-</head>
-<body>
-    <div>
+<div>
         <input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
         <input type="hidden" value="@ViewBag.templateData.CountBlocks" id="templateCountBlocks" />
+
+        @{
+                int counter = 1;
+
+                foreach (var content in ViewBag.contentList)
+                {
+
+                <input type="hidden" value="@content.Data" class="@content.ContentType.Name" id="content_@counter">
+
+                counter++;
+            }
+       }
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -51,5 +51,3 @@
 
         <div id="layout"></div>
     </div>
-</body>
-</html>

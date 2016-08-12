@@ -66,16 +66,23 @@ namespace SiteBuilder.Controllers
 
         public ActionResult Show (string user, string nameSite, string page)
         {
-            var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
-            var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().ToList();
-            var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().ToList();
+            try
+            {
+                var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
+                var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().ToList();
+                var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().ToList();
 
-            ViewBag.pages = pageList;
-            ViewBag.content = contentList;
-            ViewBag.user = user;
-            ViewBag.nameSite = nameSite;
+                ViewBag.pages = pageList;
+                ViewBag.contentList = contentList;
+                ViewBag.user = user;
+                ViewBag.nameSite = nameSite;
 
-            ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
+                ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
+            }
+            catch (System.ArgumentNullException)
+            {
+                return HttpNotFound();
+            }
             
             return View();
         }

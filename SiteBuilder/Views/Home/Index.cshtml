@@ -12,7 +12,7 @@
 
     @foreach (var site in @ViewBag.sites)
     {
-        <p class="last-create-site"><a href="#">@site.Name</a> @Resources.Resource.CreateUser - <a href="#">@site.UserId.</a></p><br>
+        <p class="last-create-site"><a href="/SiteBuilder/Show/@site.User.UserName/@site.Name/">@site.Name</a> @Resources.Resource.CreateUser - <a href="#">@site.User.UserName</a></p><br>
     }
 
     @section Scripts
