@@ -1,35 +1,9 @@
-﻿	header, section {
-		display: block;
-	}
-	body {
-		font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-	}
-	h1, h2 {
-		text-align: center;
-		font-weight: normal;
-	}
+﻿
 	section {
 		margin: auto;
-		width: 620px;
+		width: 300px;
 	}
-	a, a:link, a:visited {
-		color: #ff3399;
-		text-decoration: none;
-	}
-	a:hover {
-		text-decoration: underline;
-	}
-	.sortable {
-		margin: auto;
-		padding: 0;
-		width: 310px;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
+
 	.sortable.grid {
 		overflow: hidden;
 	}
@@ -73,43 +47,9 @@
 		border: none;
 		color: black;
 	}
-	h2 span {
-		color: #ff3399;
-	}
-	.disabled {
-		opacity: 0.5;
-	}
-    
-    .sortable_exclude_dynamic {
-		margin: auto;
-		padding: 0;
-		width: 310px;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
-    .sortable_exclude_dynamic li {
-		border: 1px solid #d97815;
-		background: #ff9933;
-		color: #fff;
-		text-shadow: 0 1px 1px #ac4e00;
-		box-shadow: inset 0 1px 1px rgba(255,255,255,0.7);
-	} 
-        
-    .sortable_exclude_dynamic li.correct {
-		border:1px solid #000000;
-        background:#cccccc;     
-            cursor:default;
-	}  
-    .sortable_exclude_dynamic li.empty{
-        border:none;
-        background:none;
-        color:#dcdcdc;
-            cursor:default;
-    }
+
+  
+
         
 	.over {
 		-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
@@ -139,64 +79,4 @@
 		-ms-animation: drop 1s ease;
 		-o-animation: drop 1s ease;
 		animation: drop 1s ease;
-	}
-
-	@keyframes "drop" {
-		0%, 100% {
-			background: #FF9933;
-			color: #fff;
-		}
-		50% {
-			color: #FF9933;
-			background: #fff;
-		}
-
-	}
-
-	@-moz-keyframes drop {
-		0%, 100% {
-			background: #FF9933;
-			color: #fff;
-		}
-		50% {
-			color: #FF9933;
-			background: #fff;
-		}
-
-	}
-
-	@-webkit-keyframes "drop" {
-		0%, 100% {
-			background: #FF9933;
-			color: #fff;
-		}
-		50% {
-			color: #FF9933;
-			background: #fff;
-		}
-
-	}
-
-	@-ms-keyframes "drop" {
-		0%, 100% {
-			background: #FF9933;
-			color: #fff;
-		}
-		50% {
-			color: #FF9933;
-			background: #fff;
-		}
-
-	}
-
-	@-o-keyframes "drop" {
-		0%, 100% {
-			background: #FF9933;
-			color: #fff;
-		}
-		50% {
-			color: #FF9933;
-			background: #fff;
-		}
-
 	}

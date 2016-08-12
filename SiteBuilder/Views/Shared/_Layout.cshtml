@@ -7,7 +7,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Flags/css/flag-icon.min.css")
-    @Styles.Render("~/Content/Flags/assets/docs.css")
+    @*@Styles.Render("~/Content/Flags/assets/docs.css")*@
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">

@@ -2,23 +2,18 @@
 
 @{
     ViewBag.Title = "CreatePage";
-    Layout = "~/Views/Shared/_LayoutCreatePage.cshtml";
 }
 
- @section Scripts {
-    <script src="~/Scripts/zepto.min.js"></script>
-    <script src="~/Scripts/zepto.dragswap.js"></script>
+ @section Styles {    
     <link href="~/Content/CreatePage.css" rel="stylesheet" />
-    <script src="~/Scripts/pageSort.js"></script>
-}
+ }
+
 
 <h2 class="text-center">CreatePage</h2><br>
 
-<h5 class="text-center">Pages this site</h5>
+<h5 class="text-center">Pages in this site</h5>
 
 <section>
-    <h2>Functions <em>toArray</em> <span id="arrayResults"></span></h2>
-    <h2><em>toJSON</em> <span id="jsonResults"></span></h2>
     <ul class="funcs">
         @foreach (var Page in ViewBag.Pages)
         {
@@ -60,3 +55,11 @@
 
     <div id="layout"></div>
 
+@section Scripts {
+    <script src="~/Scripts/zepto.min.js"></script>
+    <script src="~/Scripts/zepto.dragswap.js"></script>
+    <script src="~/Scripts/pageSort.js"></script>
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/loadstarttemplate")
+    @Scripts.Render("~/bundles/loadtemplate")
+}
