@@ -54,6 +54,7 @@ namespace SiteBuilder.Controllers
             string siteName = siteData.Name.ToString();
             ViewBag.SiteName = siteName;
             ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).OrderBy(c => c.PageNumber).ToList();
+            ViewBag.Templates = db.Templates.Select(c => c).ToList();
 
             return View();
         }

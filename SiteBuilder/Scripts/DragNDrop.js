@@ -36,14 +36,15 @@ function add(element, code) {
 }
 
 function submitForm(pageNumber) {
+    var countBlocksTemplate = Number(blocksTemplate()) + 1;
 
     var result = 0;
 
-    for (var i = 1; i < 4; i++) {
+    for (var i = 1; i < countBlocksTemplate; i++) {
         result += checkEmpty('#droppable' + i);
     }
 
-    if (result == 3) {
+    if (result == (countBlocksTemplate-1)) {
         savePage($('#inputSiteId').attr('value'), $('#inputPageName').val(), pageNumber);
     }
     else {
@@ -61,6 +62,8 @@ function checkEmpty(element) {
 }
 
 function savePage(siteId, name, pageNumber) {
+    var countBlocksTemplate = Number(blocksTemplate())+1;
+
     $.ajax({
         type: 'POST',
         url: "/SiteBuilder/SavePage",
@@ -71,7 +74,7 @@ function savePage(siteId, name, pageNumber) {
             Name: name,
         },
         success: function (data) {
-            for (var i = 1; i < 4; i++) {
+            for (var i = 1; i < countBlocksTemplate; i++) {
                 saveData(data, i, "#droppable" + i.toString());
             }
 
@@ -100,4 +103,11 @@ function saveData(id, position, tagId) {
             alert("Error save data. Please refresh page.");
         }
     });
+}
+
+function blocksTemplate() {
+    var currentTemplate = $(".template").attr('id');
+    var countBlocksTemplate = $("#Template" + currentTemplate).attr('value');
+
+    return countBlocksTemplate;
 }

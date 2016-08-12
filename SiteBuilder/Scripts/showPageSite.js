@@ -13,7 +13,9 @@
 });
 
 function addContent() {
-    for (var i = 1; i < 4; i++) {
+    var countBlocksTemplate = Number($('#countBlocksTemplate').attr('value')) + 1;
+
+    for (var i = 1; i < countBlocksTemplate; i++) {
         $("#droppable" + i).empty();
 
         var contentType = document.getElementById('content_'+i).className;
