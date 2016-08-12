@@ -119,5 +119,21 @@ namespace SiteBuilder.Controllers
             db.Contents.Add(content);
             db.SaveChanges();
         }
+
+        [HttpPost]
+        public string SavePageNumber()
+        {
+            var json = Request.Form["PageValues"];
+            int siteId = Convert.ToInt32(Request.Form["SiteId"]); 
+
+            dynamic pageNumbers = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            var pages = db.Pages.Where(c => c.SiteId == siteId).ToList();
+            for (int i = 0; i < pages.Count(); i++)
+            {
+                pages[i].PageNumber = (int)pageNumbers[i].id;
+            }
+            db.SaveChanges();
+            return "SavePageNumber";
+        }
     }
 }

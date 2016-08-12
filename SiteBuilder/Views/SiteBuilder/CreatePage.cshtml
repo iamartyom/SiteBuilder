@@ -9,41 +9,7 @@
     <script src="~/Scripts/zepto.min.js"></script>
     <script src="~/Scripts/zepto.dragswap.js"></script>
     <link href="~/Content/CreatePage.css" rel="stylesheet" />
-    @*<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>*@
-    <script>
-	$(function() {
-
-        Zepto('.sortable_exclude_dynamic').dragswap({
-            element : 'li',
-			dropAnimation: true,
-            exclude : ['.correct', '.empty']
-		});
-
-        $('.sortable_exclude_dynamic').append(
-            '<li id="item1">Item 1</li>'
-			+'<li id="item2">Item 2</li>'
-			+'<li id="item3" class="correct">Item 3</li>'
-            +'<li id="item4">Item 4</li>'
-			+'<li id="item5" class="empty"></li>'
-			+'<li id="item6" class="correct">Item 6</li>'
-			+'<li id="item7" class="correct">Item 7</li>');
-
-        Zepto('.sortable').dragswap({
-            element : 'li',
-			dropAnimation: true
-		});
-
-		Zepto('.funcs').dragswap({
-			dropAnimation: false,
-			dropComplete: function() {
-			    var sortArray = Zepto('.funcs').dragswap('toArray');
-				$('#arrayResults').html('['+sortArray.join(',')+']');
-				var sortJSON = Zepto('.funcs').dragswap('toJSON');
-				$('#jsonResults').html(sortJSON);
-			}
-		});
-	});
-</script>
+    <script src="~/Scripts/pageSort.js"></script>
 }
 
 <h2 class="text-center">CreatePage</h2><br>
