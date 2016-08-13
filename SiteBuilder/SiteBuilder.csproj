@@ -745,6 +745,7 @@
     <Content Include="Content\Flags\flags\4x3\zw.svg" />
     <Content Include="Content\Flags\flags\4x3\zz.svg" />
     <Content Include="Content\jqcloud.min.css" />
+    <Content Include="Content\ShowSite.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

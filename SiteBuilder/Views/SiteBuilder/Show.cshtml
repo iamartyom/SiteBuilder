@@ -3,7 +3,8 @@
     Layout = "~/Views/Shared/_LayoutShow.cshtml";
 }
 
-<div>
+
+
         <input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
         <input type="hidden" value="@ViewBag.templateData.CountBlocks" id="countBlocksTemplate" />
 
@@ -19,35 +20,38 @@
             }
        }
 
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                        <a href="#" class="navbar-brand">@ViewBag.nameSite</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        @foreach (var page in ViewBag.pages)
-                        {
-                            <li>
-                                <a href="/SiteBuilder/Show/@ViewBag.user/@ViewBag.nameSite/@page.Name/">@page.Name</a>
-                            </li>
-                        }
-                    </ul>
-
-                    <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder=@Resources.Resource.Search>
-                        </div>
-                        <button type="submit" class="btn btn-default">@Resources.Resource.Find</button>
-                    </form>
-                </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    @*<nav class="navbar navbar-default navbar-fixed-left">*@
+        <div class="nav navbar-nav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">@ViewBag.nameSite</a>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    @foreach (var page in ViewBag.pages)
+                        {
+                        <li>
+                            <a href="/SiteBuilder/Show/@ViewBag.user/@ViewBag.nameSite/@page.Name/">@page.Name</a>
+                        </li>
+                        }
+                </ul>
 
-        <div id="layout"></div>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder=@Resources.Resource.Search>
+                    </div>
+                    <button type="submit" class="btn btn-default">@Resources.Resource.Find</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div id="layout"></div>
+        </div>
     </div>
