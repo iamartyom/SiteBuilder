@@ -199,6 +199,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SiteBuilderController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\CultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +215,7 @@
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\TypeMenu.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.ru.Designer.cs">
       <DependentUpon>Resource.ru.resx</DependentUpon>
@@ -818,6 +820,7 @@
     <Content Include="Views\Shared\Template\Template2.cshtml" />
     <Content Include="Views\Shared\Template\Template3.cshtml" />
     <Content Include="Views\Shared\_LayoutShow.cshtml" />
+    <Content Include="Views\User\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
