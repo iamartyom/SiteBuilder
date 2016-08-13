@@ -9,23 +9,14 @@
  }
 
 
-<h2 class="text-center">CreatePage</h2><br>
-
-<h5 class="text-center">Pages in this site</h5>
-
-<section>
-    <ul class="funcs">
-        @foreach (var Page in ViewBag.Pages)
-        {
-            <li id="@Page.Id" class="text-center">@Page.Name</li>
-        }
-    </ul>
-</section>
+<h1 class="text-center">CreatePage</h1><br>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6" id="nameForm">
+            <div class="center">
                 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formPage" }))
                 {
                     @Html.ValidationSummary()
@@ -34,29 +25,56 @@
                         <label>Name</label>
                         @Html.TextBoxFor(x => x.Name, new { @class = "form-control", type = "text", id = "inputPageName" })
                     </div>
-                    <button type="button" onclick="submitForm(@Enumerable.Count(ViewBag.Pages)+1)" class="btn btn-default">Submit</button>
+                            <button type="button" onclick="submitForm(@Enumerable.Count(ViewBag.Pages)+1)" class="btn btn-default">Submit</button>
+                }
+            </div>
+
+         </div>
+
+        <div class="col-sm-6">
+
+            <div class="center">
+                <label class="text-center">Pages in this site</label>
+            </div>
+
+            <section>
+                <ul class="funcs">
+                    @foreach (var Page in ViewBag.Pages)
+                    {
+                        <li id="@Page.Id" class="text-center">@Page.Name</li>
+                    }
+                </ul>
+            </section>
+        </div>
+     </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+
+            <h4 class="text-center">Select layout type:</h4>
+            <div class="button-center">
+                @{
+                    int counter = 1;
+                    foreach (var template in ViewBag.Templates)
+                    {
+                        <button type="button" class="btn btn-info" id="@template.Name" value="@template.CountBlocks" onclick="loadTemplate(this)">@counter</button>
+                        counter++;
+                    }
                 }
             </div>
         </div>
-    </div>
+        <div class="col-sm-6">
+            <h4 class="text-center">Add content to layout:</h4>
+            <div class="text-center">
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
+                <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
+            </div>
+            </div>
+        </div>
+</div>
 
-    <h4 class="text-center">Type layout:</h4>
-    <div class="button-center">
-        @{
-                int counter = 1;
-                foreach (var template in ViewBag.Templates)
-                {
-            <button type="button" class="btn btn-info" id="@template.Name" value="@template.CountBlocks" onclick="loadTemplate(this)">@counter</button>
-                counter++;
-            }
-        }
-    </div>
 
-    <h4 class="text-center">Add content:</h4>
-    <div class="text-center">
-        <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
-        <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
-    </div>
 
     <div id="layout"></div>
 
