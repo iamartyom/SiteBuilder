@@ -1,0 +1,31 @@
+﻿@model SiteBuilder.Models.UserInfo
+
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Profile user @Model.Profile.UserName.</h2>
+<div class="container-table-site">
+    <h3 class="text-center">Sites:</h3><br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var site in Model.Sites)
+                {
+                    <tr>
+                        <td><a href="/SiteBuilder/Show/@site.NameUser/@site.NameSite/@site.NamePage/">@site.NameSite</a></td>
+                        <td>@site.Description</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>
+
+
+

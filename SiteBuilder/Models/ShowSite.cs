@@ -9,6 +9,7 @@ namespace SiteBuilder.Models
     {
         public string NameUser { get; set; }
         public string NameSite { get; set; }
+        public string Description { get; set; }
         public string NamePage { get; set; }
     }
 }

@@ -12,7 +12,7 @@
 
     @foreach (var site in @ViewBag.sites)
     {
-        <p class="last-create-site"><a href="/SiteBuilder/Show/@site.NameUser/@site.NameSite/@site.NamePage/">@site.NameSite</a> @Resources.Resource.CreateUser - <a href="#">@site.NameUser</a></p><br>
+        <p class="last-create-site">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { user = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null) @Resources.Resource.CreateUser - @Html.ActionLink((string)site.NameUser, "Info", "User", new { user = (string)site.NameUser }, null)</p><br>
     }
 
     @section Scripts

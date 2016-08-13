@@ -88,3 +88,12 @@ div.centre
     margin:auto;
 }
 
+.container-table-site {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container-table-site tr a {
+    font-size: 20px;
+}
+
