@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Tag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Tag</h2>
+
+@foreach (var site in ViewBag.sites)
+{
+    <p class="text-center" style="font-size: 20px">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { parameter1 = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null)</p>
+}
+

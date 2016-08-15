@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/tags")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Flags/css/flag-icon.min.css")
     @*@Styles.Render("~/Content/Flags/assets/docs.css")*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Styles", required: false)
 </head>
 <body>
@@ -24,7 +28,6 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active">@Html.ActionLink(Resources.Resource.Main, "Index", "Home")</li>
-                    <li>@Html.ActionLink(Resources.Resource.Sites, "Index", "Home")</li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -75,8 +78,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 </body>
 </html>

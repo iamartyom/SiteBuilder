@@ -32,6 +32,10 @@ namespace SiteBuilder
             bundles.Add(new ScriptBundle("~/bundles/cloudinaryall").Include(
                         "~/Scripts/cloudinary_all.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/tags").Include(
+                        "~/Scripts/tag-it.js",
+                        "~/Scripts/tags.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -44,6 +48,13 @@ namespace SiteBuilder
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/buttons").Include(
+                      "~/Content/buttons.css"));
+
+            bundles.Add(new StyleBundle("~/Content/tags").Include(
+                      "~/Content/tagit.css",
+                      "~/Content/tagit-ui.css"));
         }
     }
 }

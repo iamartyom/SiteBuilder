@@ -6,6 +6,12 @@
 }
 
 <h2 class="text-center">Profile user @Model.Profile.UserName.</h2>
+<div class="text-center">
+    @if (Model.Profile.UserName == User.Identity.Name)
+    {
+        <a href="/SiteBuilder/CreateSite/" class="btn btn-info">Create site</a>
+    }
+</div>
 <div class="container-table-site">
     <h3 class="text-center">Sites:</h3><br><br>
     <table class="table table-striped">
