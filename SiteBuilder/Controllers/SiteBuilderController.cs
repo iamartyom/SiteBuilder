@@ -71,12 +71,14 @@ namespace SiteBuilder.Controllers
             {
                 var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
                 var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().OrderBy(c => c.PageNumber).ToList();
-                var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();
+                var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
+                var navbarType = db.Sites.Where(c => c.Name == nameSite).Select(c => c.TypeMenuId).FirstOrDefault();
 
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = user;
                 ViewBag.nameSite = nameSite;
+                ViewBag.navbarType = navbarType;
 
                 ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
             }
@@ -87,6 +89,7 @@ namespace SiteBuilder.Controllers
             
             return View();
         }
+
 
         public string UserId()
         {

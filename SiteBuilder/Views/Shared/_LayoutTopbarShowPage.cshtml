@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/showpagesite")
+
+</head>
+<body>
+    <div class="container body-content">
+
+            
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">@ViewBag.nameSite</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        @foreach (var page in ViewBag.pages)
+                        {
+                            <li>
+                                <a href="/SiteBuilder/Show/@ViewBag.user/@ViewBag.nameSite/@page.Name/">@page.Name</a>
+                            </li>
+                        }
+                    </ul>
+
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder=@Resources.Resource.Search>
+                        </div>
+                        <button type="submit" class="btn btn-default">@Resources.Resource.Find</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+            
+            @RenderBody()
+                        
+    </div>
+            <footer>
+                <p>&copy; @DateTime.Now.Year - @Resources.Resource.ApplicationName</p>
+            </footer>
+</body>
+</html>
