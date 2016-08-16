@@ -59,7 +59,7 @@ namespace SiteBuilder.Controllers
                 db.Sites.Add(newSite);
                 db.SaveChanges();
 
-                return RedirectToAction("CreatePage", "SiteBuilder", new { id = newSite.Id });
+                return RedirectToAction("CreatePage", "SiteBuilder", new { parameter1 = newSite.Id });
             }
             else
             {

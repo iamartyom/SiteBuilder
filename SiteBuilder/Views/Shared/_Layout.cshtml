@@ -11,9 +11,6 @@
 
     @*@Styles.Render("~/Content/Flags/assets/docs.css")*@
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jquery-ui")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Styles", required: false)
 
 
@@ -83,6 +80,9 @@
         </footer>
     </div>
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 </body>
 </html>
