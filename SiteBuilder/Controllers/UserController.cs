@@ -33,7 +33,7 @@ namespace SiteBuilder.Controllers
         [HttpPost]
         public ActionResult LoadEditPanel(string nameSite, string user)
         {
-            ViewBag.site = db.Sites.Where(c => c.Name == nameSite).First().Id;
+            ViewBag.site = db.Sites.Where(c => c.Name == nameSite && c.User.UserName == user).First().Id;
 
             return PartialView("EditPanelProfile");
         }

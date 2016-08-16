@@ -162,16 +162,14 @@ namespace SiteBuilder.Controllers
             return "SavePageNumber";
         }
 
-        public string DeleteSite(string nameSite)
+        public void DeleteSite(int parameter1)
         {
-            int idSite = db.Sites.Where(c => c.Name == nameSite).First().Id;
-
-            Site record = db.Sites.First(c => c.Id == idSite);
+            Site record = db.Sites.First(c => c.Id == parameter1);
 
             db.Sites.Remove(record);
             db.SaveChanges();
 
-            return "Site is deleted.";
+            Response.Redirect(Request.UrlReferrer.ToString());
         }
     }
 }
