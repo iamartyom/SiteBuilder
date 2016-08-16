@@ -1,8 +1,12 @@
-﻿@model SiteBuilder.Models.Site
+﻿@model SiteBuilder.Models.AddSite
 
 @{
     ViewBag.Title = "CreateSite";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/tags");   
 }
 
 <h2>CreateSite</h2>
@@ -10,6 +14,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
+            @{
+                var listTags = "";
+
+                foreach (var tag in ViewBag.Tags)
+                {
+                    listTags += tag + ",";
+                }
+
+                <input type="hidden" id="listTags" value="@listTags">
+            }
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary()
@@ -30,6 +44,9 @@
                             <option value="@TypeMenu.Id">@TypeMenu.Name</option>
                         }
                     </select>
+                </div>
+                <div class="form-group">
+                    <input name="Tags" id="singleFieldTags2" value="" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             }

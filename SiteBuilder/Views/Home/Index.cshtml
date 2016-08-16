@@ -3,7 +3,14 @@
 }
 
     <h1 class="text-center">@Resources.Resource.ApplicationName - @Resources.Resource.DescriptionMainPage</h1>
-    
+
+    @if (Request.IsAuthenticated)
+    {
+        <div class="text-center">
+            <a href="/SiteBuilder/CreateSite/" class="btn btn-info">Create site</a>
+        </div>
+    }
+
 
     <div id="tagcloud" class="centre" style="width: 500px; height: 300px; position: relative;"></div>
 
@@ -12,7 +19,7 @@
 
     @foreach (var site in @ViewBag.sites)
     {
-        <p class="last-create-site">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { user = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null) @Resources.Resource.CreateUser - @Html.ActionLink((string)site.NameUser, "Info", "User", new { user = (string)site.NameUser }, null)</p><br>
+        <p class="last-create-site">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { parameter1 = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null) @Resources.Resource.CreateUser - @Html.ActionLink((string)site.NameUser, "Info", "User", new { parameter1 = (string)site.NameUser }, null)</p><br>
     }
 
     @section Scripts
@@ -22,22 +29,14 @@
         @Styles.Render("~/Content/jqcloud.min.css")
 
     <script>
-    var words = [
-      { text: "Lorem", weight: 13, link: 'http://9gag.com' },
-      { text: "Ipsum", weight: 10.5, link: 'http://9gag.com' },
-      { text: "Dolor", weight: 9.4, link: 'http://9gag.com' },
-      { text: "Sit", weight: 8, link: 'http://9gag.com' },
-      { text: "Amet", weight: 6.2, link: 'http://9gag.com' },
-      { text: "Consectetur", weight: 5, link: 'http://9gag.com' },
-      { text: "Adipiscing", weight: 4, link: 'http://9gag.com' },
-      { text: "Lorm", weight: 3, link: 'http://9gag.com' },
-      { text: "Ipum", weight: 2, link: 'http://9gag.com' },
-      { text: "Dlor", weight: 9, link: 'http://9gag.com' },
-      { text: "it", weight: 8.6, link: 'http://9gag.com' },
-      { text: "met", weight: 6, link: 'http://9gag.com' },
-      { text: "Cosectetur", weight: 5.2, link: 'http://9gag.com' },
-      { text: "Adpiscing", weight: 5.3, link: 'http://9gag.com' },
-    ];
+        var words = [
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <text>
+                { text: "@tag.Name", weight: 10.5, link: '/Search/Tag/@tag.Name' },
+                </text>
+            }
+        ];
 
     $(document).ready(function() {
        $("#tagcloud").jQCloud(words);

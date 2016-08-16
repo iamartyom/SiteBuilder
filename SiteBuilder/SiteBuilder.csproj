@@ -198,13 +198,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SiteBuilderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Filters\CultureAttribute.cs" />
+    <Compile Include="fonts\Filters\CultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddSite.cs" />
     <Compile Include="Models\Content.cs" />
     <Compile Include="Models\ContentType.cs" />
     <Compile Include="Models\DataInitializer.cs" />
@@ -213,6 +215,8 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\ShowSite.cs" />
     <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TagSite.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\TypeMenu.cs" />
     <Compile Include="Models\UserInfo.cs" />
@@ -233,6 +237,7 @@
     <Content Include="Content\bootstrap-markdown.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sidebar.css" />
@@ -751,6 +756,8 @@
     <Content Include="Content\Flags\flags\4x3\zw.svg" />
     <Content Include="Content\Flags\flags\4x3\zz.svg" />
     <Content Include="Content\jqcloud.min.css" />
+    <Content Include="Content\tagit-ui.css" />
+    <Content Include="Content\tagit.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -798,6 +805,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\showPageSite.js" />
     <Content Include="Scripts\to-markdown.js" />
+    <Content Include="Scripts\tag-it.js" />
+    <Content Include="Scripts\tags.js" />
     <Content Include="Scripts\zepto.dragswap.js" />
     <Content Include="Scripts\zepto.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -844,6 +853,8 @@
     <Content Include="Views\Shared\_LayoutTopbarShowPage.cshtml" />
     <Content Include="Views\User\Info.cshtml" />
     <Content Include="Views\Shared\_LayoutSidebarShowPage.cshtml" />
+    <Content Include="Views\Search\Tag.cshtml" />
+    <Content Include="Views\Shared\EditPanelProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

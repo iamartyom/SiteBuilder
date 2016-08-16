@@ -18,6 +18,7 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult CreateSite()
         {
+            ViewBag.Tags = db.Tags.Select(c => c.Name);
             ViewBag.UserId = UserId();
             ViewBag.TypeMenus = db.TypeMenus.Select(c => c).ToList();
 
@@ -25,19 +26,40 @@ namespace SiteBuilder.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateSite(Site site)
+        public ActionResult CreateSite(AddSite site)
         {
-            ViewBag.TypeMenus = db.TypeMenus.Select(c => c).ToList();
-
-            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            site.UserId = user.Id;
+            site.UserId = UserId();
 
             if (ModelState.IsValid)
             {
-                db.Sites.Add(site);
+                Site newSite = new Site()
+                {
+                    UserId = site.UserId,
+                    Name = site.Name,
+                    Description = site.Description,
+                    TypeMenuId =  site.TypeMenuId,
+                    TagSites = new List<TagSite>(),
+                };
+
+                var listTags = site.Tags.ToString().Split(',');
+
+                foreach(var tag in listTags)
+                {
+                    if (db.Tags.Any(c => c.Name == tag))
+                    {
+                        newSite.TagSites.Add(new TagSite { SiteId = newSite.Id, TagId = db.Tags.Where(c => c.Name == tag).FirstOrDefault().Id });
+                    }
+                };
+
+                if (newSite.TagSites.Count() < 1)
+                {
+                    return CreateSite();
+                }
+
+                db.Sites.Add(newSite);
                 db.SaveChanges();
 
-                return RedirectToAction("CreatePage", "SiteBuilder", new { id = site.Id });
+                return RedirectToAction("CreatePage", "SiteBuilder", new { id = newSite.Id });
             }
             else
             {
@@ -46,14 +68,14 @@ namespace SiteBuilder.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreatePage(int id)
+        public ActionResult CreatePage(int parameter1)
         {
             ViewBag.UserId = UserId();
-            ViewBag.SiteId = id;
-            var siteData = db.Sites.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
+            ViewBag.SiteId = parameter1;
+            var siteData = db.Sites.Where(c => c.Id == parameter1).Select(c => c).FirstOrDefault();
             string siteName = siteData.Name.ToString();
             ViewBag.SiteName = siteName;
-            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).OrderBy(c => c.PageNumber).ToList();
+            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == parameter1).OrderBy(c => c.PageNumber).ToList();
             ViewBag.Templates = db.Templates.Select(c => c).ToList();
 
             return View();
@@ -65,18 +87,18 @@ namespace SiteBuilder.Controllers
             return CreatePage(page.SiteId);
         }
 
-        public ActionResult Show (string user, string nameSite, string page)
+        public ActionResult Show (string parameter1, string nameSite, string page)
         {
             try
             {
-                var siteList = db.Users.Where(c => c.UserName == user).Select(c => c.Sites).FirstOrDefault().ToList();
+                var siteList = db.Users.Where(c => c.UserName == parameter1).Select(c => c.Sites).FirstOrDefault().ToList();
                 var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().OrderBy(c => c.PageNumber).ToList();
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
                 var navbarType = db.Sites.Where(c => c.Name == nameSite).Select(c => c.TypeMenuId).FirstOrDefault();
 
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
-                ViewBag.user = user;
+                ViewBag.user = parameter1;
                 ViewBag.nameSite = nameSite;
                 ViewBag.navbarType = navbarType;
 
@@ -138,6 +160,18 @@ namespace SiteBuilder.Controllers
             }
             db.SaveChanges();
             return "SavePageNumber";
+        }
+
+        public string DeleteSite(string nameSite)
+        {
+            int idSite = db.Sites.Where(c => c.Name == nameSite).First().Id;
+
+            Site record = db.Sites.First(c => c.Id == idSite);
+
+            db.Sites.Remove(record);
+            db.SaveChanges();
+
+            return "Site is deleted.";
         }
     }
 }

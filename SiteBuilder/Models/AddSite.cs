@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SiteBuilder.Models
 {
-    public class Site
+    public class AddSite
     {
         public int Id { get; set; }
         [Required]
@@ -17,10 +17,7 @@ namespace SiteBuilder.Models
         public string Description { get; set; }
         [Required]
         public string TypeMenuId { get; set; }
-
-        public virtual IList<Page> Pages { get; set; }
-        public virtual IList<TagSite> TagSites { get; set; }    
-        public virtual TypeMenu TypeMenu { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        [Required]
+        public string Tags { get; set; }
     }
 }
