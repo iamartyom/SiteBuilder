@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $('#image, #video').draggable({
+    $('#image, #video, #text').draggable({
         revert: function () {
             return true;
         },
@@ -10,14 +10,26 @@
             if (ui.draggable.attr('id') == "image") {
                 uploadImage(this);
             }
-            else {
+            else if (ui.draggable.attr('id') == "video") {
                 var src = prompt("Add link youtube video");
-                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width()/4*3 + '" src="' + src + '" frameborder="0" class="2"></iframe>'
+                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width() / 4 * 3 + '" src="' + src + '" frameborder="0" class="2"></iframe>';
                 add(this, code);
+            }
+            else if (ui.draggable.attr('id') == "text") {
+                markdownEditor(this);
             }
         },
     });
 });
+
+function markdownEditor(element) {
+    $('#myModal').modal();
+    $('#textButton').click(function () {
+        var formData = $('#textareaForm').data('markdown').parseContent();
+        add(element, formData)
+    })
+}
+
 
 function uploadImage(element) {
     cloudinary.openUploadWidget({ cloud_name: 'tematema', upload_preset: 'ciwchslt' },

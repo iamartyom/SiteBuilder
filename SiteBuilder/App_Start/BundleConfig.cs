@@ -44,6 +44,15 @@ namespace SiteBuilder
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-markdown").Include(
+                      "~/Scripts/bootstrap-markdown.js",
+                      "~/Scripts/markdown.js",
+                      "~/Scripts/marked.js",
+                      "~/Scripts/to-markdown.js"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-markdown").Include(
+                      "~/Content/bootstrap-markdown.min.css"));
         }
     }
 }
