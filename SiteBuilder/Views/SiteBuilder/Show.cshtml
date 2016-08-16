@@ -17,16 +17,16 @@
         <input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
         <input type="hidden" value="@ViewBag.templateData.CountBlocks" id="countBlocksTemplate" />
 @{
-                int counter = 1;
+    int counter = 1;
 
-                foreach (var content in ViewBag.contentList)
-                {
+    foreach (var content in ViewBag.contentList)
+    {
 
                 <input type="hidden" value="@content.Data" class="@content.ContentType.Name" id="content_@counter">
 
-                counter++;
-            }
-
+            counter++;
+        }
+    }
 
     <div class="container">
             <div id="layout"></div>
