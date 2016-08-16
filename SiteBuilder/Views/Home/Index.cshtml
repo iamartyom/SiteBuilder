@@ -19,7 +19,7 @@
 
     @foreach (var site in @ViewBag.sites)
     {
-        <p class="last-create-site">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { parameter1 = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null) @Resources.Resource.CreateUser - @Html.ActionLink((string)site.NameUser, "Info", "User", new { user = (string)site.NameUser }, null)</p><br>
+        <p class="last-create-site">@Html.ActionLink((string)site.NameSite, "Show", "SiteBuilder", new { parameter1 = (string)site.NameUser, nameSite = (string)site.NameSite, page = (string)site.NamePage }, null) @Resources.Resource.CreateUser - @Html.ActionLink((string)site.NameUser, "Info", "User", new { parameter1 = (string)site.NameUser }, null)</p><br>
     }
 
     @section Scripts

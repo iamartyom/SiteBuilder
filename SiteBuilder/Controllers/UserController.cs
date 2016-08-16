@@ -12,14 +12,14 @@ namespace SiteBuilder.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: User
-        public ActionResult Info(string user)
+        public ActionResult Info(string parameter1)
         {
-            if (db.Users.Any(c => c.UserName == user))
+            if (db.Users.Any(c => c.UserName == parameter1))
             {
                 var model = new UserInfo
                 {
-                    Profile = db.Users.Where(c => c.UserName == user).First(),
-                    Sites = db.Sites.OrderByDescending(c => c.Id).Select(c => new ShowSite { NameSite = c.Name, NameUser = c.User.UserName, Description = c.Description, NamePage = c.Pages.FirstOrDefault().Name }).ToList()
+                    Profile = db.Users.Where(c => c.UserName == parameter1).FirstOrDefault(),
+                    Sites = db.Sites.OrderByDescending(c => c.Id).Select(c => new ShowSite { NameSite = c.Name, NameUser = c.User.UserName, Description = c.Description, NamePage = c.Pages.FirstOrDefault().Name, TagSite = c.TagSites }).Where(c => c.NameUser == parameter1).ToList(),
             };
 
                 return View(model);
@@ -28,6 +28,14 @@ namespace SiteBuilder.Controllers
             {
                 return HttpNotFound();
             }
+        }
+
+        [HttpPost]
+        public ActionResult LoadEditPanel(string nameSite, string user)
+        {
+            ViewBag.site = db.Sites.Where(c => c.Name == nameSite).First().Id;
+
+            return PartialView("EditPanelProfile");
         }
     }
 }

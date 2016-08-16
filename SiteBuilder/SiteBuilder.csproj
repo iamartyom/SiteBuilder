@@ -201,7 +201,7 @@
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SiteBuilderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Filters\CultureAttribute.cs" />
+    <Compile Include="fonts\Filters\CultureAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -831,6 +831,7 @@
     <Content Include="Views\Shared\_LayoutShow.cshtml" />
     <Content Include="Views\User\Info.cshtml" />
     <Content Include="Views\Search\Tag.cshtml" />
+    <Content Include="Views\Shared\EditPanelProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

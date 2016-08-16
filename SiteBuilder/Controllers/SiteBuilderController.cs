@@ -68,14 +68,14 @@ namespace SiteBuilder.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreatePage(int id)
+        public ActionResult CreatePage(int parameter1)
         {
             ViewBag.UserId = UserId();
-            ViewBag.SiteId = id;
-            var siteData = db.Sites.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
+            ViewBag.SiteId = parameter1;
+            var siteData = db.Sites.Where(c => c.Id == parameter1).Select(c => c).FirstOrDefault();
             string siteName = siteData.Name.ToString();
             ViewBag.SiteName = siteName;
-            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == id).OrderBy(c => c.PageNumber).ToList();
+            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == parameter1).OrderBy(c => c.PageNumber).ToList();
             ViewBag.Templates = db.Templates.Select(c => c).ToList();
 
             return View();
@@ -157,6 +157,18 @@ namespace SiteBuilder.Controllers
             }
             db.SaveChanges();
             return "SavePageNumber";
+        }
+
+        public string DeleteSite(string nameSite)
+        {
+            int idSite = db.Sites.Where(c => c.Name == nameSite).First().Id;
+
+            Site record = db.Sites.First(c => c.Id == idSite);
+
+            db.Sites.Remove(record);
+            db.SaveChanges();
+
+            return "Site is deleted.";
         }
     }
 }

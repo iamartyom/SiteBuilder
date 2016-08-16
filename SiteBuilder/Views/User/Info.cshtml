@@ -19,17 +19,46 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Tags</th>
             </tr>
         </thead>
         <tbody>
                 @foreach (var site in Model.Sites)
                 {
-                    <tr>
-                        <td><a href="/SiteBuilder/Show/@site.NameUser/@site.NameSite/@site.NamePage/">@site.NameSite</a></td>
+                    <tr class="userSite">
+                        <td class="@site.NameUser" id="@site.NameSite"><a href="/SiteBuilder/Show/@site.NameUser/@site.NameSite/@site.NamePage/">@site.NameSite</a></td>
                         <td>@site.Description</td>
+                        <td>
+                            @foreach (var tag in site.TagSite)
+                            {
+                                <a href="/Search/Tag/@tag.Tag.Name/"><button class="btn btn-success">@tag.Tag.Name</button></a>                                
+                            }
+                        </td>
                     </tr>
                 }
         </tbody>
+        <script>
+            $(function () {
+                $('.userSite').mouseover(function () {
+                    loadEditPanel(this);
+                });
+            });
+
+            function loadEditPanel(element) {
+                $.ajax({
+                    type: 'POST',
+                    url: "/User/LoadEditPanel/",
+                    data: {
+                        nameSite: $(element).children(':first').attr('id'),
+                        user : $(element).children(':first').attr('class')
+                    },
+                    success: function (data) {
+                        $('.editPanel').empty();
+                        $(element).after(data);
+                    }
+                });
+            }
+        </script>
     </table>
 </div>
 

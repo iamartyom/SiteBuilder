@@ -11,7 +11,7 @@
                 @Resources.Resource.Hello @User.Identity.GetUserName()
             </a>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Profile", "Info", "User", new { user = User.Identity.GetUserName() }, null)</li>
+                <li>@Html.ActionLink("Profile", "Info", "User", new { parameter1 = User.Identity.GetUserName() }, null)</li>
                 <li>@Html.ActionLink("Manage", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
             </ul>
         </li>

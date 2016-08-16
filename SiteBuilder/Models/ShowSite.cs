@@ -11,5 +11,6 @@ namespace SiteBuilder.Models
         public string NameSite { get; set; }
         public string Description { get; set; }
         public string NamePage { get; set; }
+        public IList<TagSite> TagSite { get; set; }
     }
 }
