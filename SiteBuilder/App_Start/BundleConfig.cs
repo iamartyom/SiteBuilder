@@ -48,9 +48,17 @@ namespace SiteBuilder
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap-white").Include(
+                      "~/Content/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-black").Include(
+                      "~/Content/bootstrap-black.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-ginger").Include(
+                      "~/Content/bootstrap-ginger.css"));
+
+            bundles.Add(new StyleBundle("~/Content/site").Include(
+                      "~/Content/site.css"));            
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap-markdown").Include(
                       "~/Scripts/bootstrap-markdown.js",

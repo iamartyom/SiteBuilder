@@ -103,13 +103,13 @@ namespace SiteBuilder.Controllers
                 }
 
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
-                var navbarType = db.Sites.Where(c => c.Name == nameSite).Select(c => c.TypeMenuId).FirstOrDefault();
+                var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
                 ViewBag.nameSite = nameSite;
-                ViewBag.navbarType = navbarType;
+                ViewBag.siteInfo = siteInfo;
 
                 ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
             }
