@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
+
+    <link href="~/Content/sidebar.css" rel="stylesheet" />
     @RenderSection("Styles", required: true)
     @Styles.Render("~/Content/site")
     @Scripts.Render("~/bundles/modernizr")
@@ -13,8 +15,8 @@
     @Scripts.Render("~/bundles/showpagesite")
     @Scripts.Render("~/bundles/showdown")
 
+
     @*<script src="~/Scripts/application.js"></script>*@
-    <link href="~/Content/sidebar.css" rel="stylesheet" />
 
 </head>
 <body style="padding-top: 0px">
@@ -22,7 +24,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-lg-2">
-                <nav class="navbar navbar-default navbar-fixed-side">
+                <nav class="navbar navbar-default navbar-fixed-side" style="width: 100%">
                     <div class="container">
                         <div class="navbar-header">
                             <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">

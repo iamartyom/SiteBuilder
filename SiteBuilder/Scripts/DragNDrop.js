@@ -12,7 +12,7 @@
             }
             else if (ui.draggable.attr('id') == "video") {
                 var src = prompt("Add link youtube video");
-                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width() / 4 * 3 + '" src="' + src + '" frameborder="0" class="2"></iframe>';
+                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width() / 4 * 3 + '" src="//www.youtube.com/embed/' + getId(src) + '" frameborder="0" class="2"></iframe>';
                 add(this, code);
             }
             else if (ui.draggable.attr('id') == "text") {
@@ -24,6 +24,17 @@
         },
     });
 });
+
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
 
 function markdownEditor(element) {
     $('#myModal').modal();
