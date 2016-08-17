@@ -19,7 +19,7 @@
                 markdownEditor(this);
             }
             else {
-                //
+                alert('wtf');
             }
         },
     });
@@ -27,10 +27,10 @@
 
 function markdownEditor(element) {
     $('#myModal').modal();
-    $('#textButton').click(function () {
+    $('#textButton').unbind().click(function () {
         var formData = '<input type="hidden" class="3"><div>' + $('#textareaForm').data('markdown').parseContent() + '</div>';
-        add(element, formData)
-    })
+        add(element, formData);
+    });
 }
 
 

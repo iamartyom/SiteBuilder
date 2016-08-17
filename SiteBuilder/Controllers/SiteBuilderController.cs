@@ -95,6 +95,12 @@ namespace SiteBuilder.Controllers
             {
                 var siteList = db.Users.Where(c => c.UserName == parameter1).Select(c => c.Sites).FirstOrDefault().ToList();
                 var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().OrderBy(c => c.PageNumber).ToList();
+
+                if (pageList.Count == 0)
+                {
+                    return RedirectToAction("CreatePage", "SiteBuilder", new { parameter1 = siteList.First(c => c.Name == nameSite).Id });
+                }
+
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
                 var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
