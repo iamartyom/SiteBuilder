@@ -759,6 +759,7 @@
     <Content Include="Content\Flags\flags\4x3\zw.svg" />
     <Content Include="Content\Flags\flags\4x3\zz.svg" />
     <Content Include="Content\jqcloud.min.css" />
+    <Content Include="Content\sidebarNormalize.css" />
     <Content Include="Content\tagit-ui.css" />
     <Content Include="Content\tagit.css" />
     <Content Include="favicon.ico" />
@@ -859,7 +860,6 @@
     <Content Include="Views\Shared\_LayoutSidebarShowPage.cshtml" />
     <Content Include="Views\Search\Tag.cshtml" />
     <Content Include="Views\Shared\EditPanelProfile.cshtml" />
-    <Content Include="Views\SiteBuilder\EditSite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
