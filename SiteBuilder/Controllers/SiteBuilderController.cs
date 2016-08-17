@@ -124,6 +124,9 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult EditSite(int parameter1)
         {
+            ViewBag.typeMenus = db.TypeMenus.ToList();
+            ViewBag.styleTypes = db.StyleTypes.ToList();
+
             Site site = db.Sites.First(c => c.Id == parameter1);
 
             return View(site);
@@ -139,7 +142,7 @@ namespace SiteBuilder.Controllers
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Info", "User", new { parameter1 = db.Users.First(c => c.Id == site.UserId).UserName });
             }
 
             return View();
