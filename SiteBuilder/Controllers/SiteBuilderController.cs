@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using SiteBuilder.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -119,6 +120,30 @@ namespace SiteBuilder.Controllers
             
             return View();
         }
+
+        [HttpGet]
+        public ActionResult EditSite(int parameter1)
+        {
+            Site site = db.Sites.First(c => c.Id == parameter1);
+
+            return View(site);
+        }
+
+        [HttpPost]
+        public ActionResult EditSite(Site site)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Sites.Attach(site);
+                var entry = db.Entry(site);
+                entry.State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        } 
 
 
         public string UserId()
