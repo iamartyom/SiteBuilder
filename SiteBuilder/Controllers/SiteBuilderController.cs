@@ -96,13 +96,13 @@ namespace SiteBuilder.Controllers
                 var siteList = db.Users.Where(c => c.UserName == parameter1).Select(c => c.Sites).FirstOrDefault().ToList();
                 var pageList = siteList.Where(c => c.Name == nameSite).Select(c => c.Pages).FirstOrDefault().OrderBy(c => c.PageNumber).ToList();
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
-                var navbarType = db.Sites.Where(c => c.Name == nameSite).Select(c => c.TypeMenuId).FirstOrDefault();
+                var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
                 ViewBag.nameSite = nameSite;
-                ViewBag.navbarType = navbarType;
+                ViewBag.siteInfo = siteInfo;
 
                 ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
             }

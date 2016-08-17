@@ -1,6 +1,6 @@
 ﻿
 @{
-    int variable = ViewBag.navbarType;
+    int variable = ViewBag.siteInfo.TypeMenuId;
 
     if (variable == 2)
     {
@@ -12,6 +12,10 @@
     }
 }
 
+
+@section Styles {
+    @Styles.Render("~/Content/bootstrap-" + ViewBag.siteInfo.StyleType.Name)
+    }
 
 
         <input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
