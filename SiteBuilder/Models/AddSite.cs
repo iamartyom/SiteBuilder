@@ -16,7 +16,9 @@ namespace SiteBuilder.Models
         [Required]
         public string Description { get; set; }
         [Required]
-        public string TypeMenuId { get; set; }
+        public int TypeMenuId { get; set; }
+        [Required]
+        public int StyleTypeId { get; set; }
         [Required]
         public string Tags { get; set; }
     }

@@ -8,6 +8,9 @@
     @Styles.Render("~/Content/tags")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Flags/css/flag-icon.min.css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/bootstrap")
 
     @*@Styles.Render("~/Content/Flags/assets/docs.css")*@
 
@@ -80,9 +83,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jquery-ui")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
 </body>
 </html>

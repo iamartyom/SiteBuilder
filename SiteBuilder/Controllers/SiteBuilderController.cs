@@ -20,7 +20,8 @@ namespace SiteBuilder.Controllers
         {
             ViewBag.Tags = db.Tags.Select(c => c.Name);
             ViewBag.UserId = UserId();
-            ViewBag.TypeMenus = db.TypeMenus.Select(c => c).ToList();
+            ViewBag.TypeMenus = db.TypeMenus.ToList();
+            ViewBag.StyleTypes = db.StyleTypes.ToList();
 
             return View();
         }
@@ -38,6 +39,7 @@ namespace SiteBuilder.Controllers
                     Name = site.Name,
                     Description = site.Description,
                     TypeMenuId =  site.TypeMenuId,
+                    StyleTypeId = site.StyleTypeId,
                     TagSites = new List<TagSite>(),
                 };
 

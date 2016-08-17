@@ -31,6 +31,9 @@ function addContent() {
             case 'Video':
                 templateContent = '<iframe width="' + widthBlock + '" height = "' + widthBlock / 4 * 3 + '" src="' + data + '" frameborder="0" class="2"></iframe>';
                 break;
+            case 'Markdown':
+                templateContent = markDownToHtml(data);
+                break;
             default:
                 break;
         }
@@ -38,4 +41,9 @@ function addContent() {
         $('#droppable' + i).html(templateContent);
         $('#droppable'+ i).height('100%');
     }
+}
+
+function markDownToHtml(data) {
+    var converter = new showdown.Converter();
+    return converter.makeHtml(data);
 }

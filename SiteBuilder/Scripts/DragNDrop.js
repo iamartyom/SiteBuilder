@@ -18,6 +18,9 @@
             else if (ui.draggable.attr('id') == "text") {
                 markdownEditor(this);
             }
+            else {
+                //
+            }
         },
     });
 });
@@ -25,7 +28,7 @@
 function markdownEditor(element) {
     $('#myModal').modal();
     $('#textButton').click(function () {
-        var formData = $('#textareaForm').data('markdown').parseContent();
+        var formData = '<input type="hidden" class="3"><div>' + $('#textareaForm').data('markdown').parseContent() + '</div>';
         add(element, formData)
     })
 }
@@ -99,20 +102,31 @@ function savePage(siteId, name, pageNumber) {
 }
 
 function saveData(id, position, tagId) {
+    var contentTypeId = $(tagId).children(':first').attr('class');
+    var data = null;
+
+    if (contentTypeId == '3') {
+        data = toMarkdown($(tagId).children(':first').next().html());
+    }
+    else 
+    {
+        data = $(tagId).children(':first').attr('src');
+    };
+
     $.ajax({
         type: 'POST',
         url: "/SiteBuilder/SaveData",
         data: {
             PageId: id,
             Position: position,
-            Data: $(tagId).children(':first').attr('src'),
-            ContentTypeId: $(tagId).children(':first').attr('class'),
+            Data: data,
+            ContentTypeId: contentTypeId,
         },
         success: function (data) {
             //
         },
         error: function (data) {
-            alert("Error save data. Please refresh page.");
+            //
         }
     });
 }

@@ -28,6 +28,7 @@ namespace SiteBuilder.Models
 
         public DbSet<Site> Sites { get; set; }
         public DbSet<TypeMenu> TypeMenus { get; set; }
+        public DbSet<StyleType> StyleTypes { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Template> Templates { get; set; }
         public DbSet<ContentType> ContentTypes { get; set; }

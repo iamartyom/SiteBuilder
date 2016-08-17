@@ -215,6 +215,7 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\ShowSite.cs" />
     <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\StyleType.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TagSite.cs" />
     <Compile Include="Models\Template.cs" />
@@ -803,6 +804,7 @@
     <Content Include="Scripts\pageSort.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showdown.js" />
     <Content Include="Scripts\showPageSite.js" />
     <Content Include="Scripts\to-markdown.js" />
     <Content Include="Scripts\tag-it.js" />
