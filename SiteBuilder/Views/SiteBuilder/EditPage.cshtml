@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "EditPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/bootstrap-markdown")    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/showdown")
+    @Scripts.Render("~/bundles/bootstrap-markdown")
+    @Scripts.Render("~/bundles/showpagesite")    
+}
+
+<h2 class="text-center">Edit page</h2>
+
+<label>Name page</label>
+<input type="text" name="namePage" value="@ViewBag.page" class="form-control">
+<br>
+<input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
+<input type="hidden" value="@ViewBag.templateData.CountBlocks" id="countBlocksTemplate" />
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Input text</h4>
+            </div>
+            <div class="modal-body">
+                <form id="textForm">
+                    <textarea id="textareaForm" name="content" data-provide="markdown" data-width="100%" rows="20"></textarea>
+                    <hr>
+                    <button type="submit" class="btn" id="textButton" data-dismiss="modal">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<h4 class="text-center">Add content to layout:</h4>
+<div class="text-center">
+    <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-64.png" id="image" />
+    <img src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/24.TV-64.png" id="video" />
+    <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/document_text-64.png" id="text" />
+</div>
+
+@{
+    int counter = 1;
+
+    foreach (var content in ViewBag.contentList)
+    {
+
+        <input type="hidden" value="@content.Data" class="@content.ContentType.Name" id="content_@counter">
+
+        counter++;
+    }
+}
+
+<div class="container">
+    <div id="layout"></div>
+</div><br><br>
+
+<div class="text-center">
+    <a href="#"><button class="btn btn-info">Save changes</button></a>
+    <a onclick="history.go(-1);"><button class="btn btn-info">Cancel</button></a>
+</div><br><br>  

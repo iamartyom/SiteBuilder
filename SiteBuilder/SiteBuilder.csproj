@@ -48,6 +48,14 @@
       <HintPath>..\packages\Duke.Owin.VkontakteMiddleware.1.2.0.0\lib\net45\Duke.Owin.VkontakteMiddleware.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -243,6 +251,7 @@
     <Content Include="Content\bootstrap-min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.bootstrap-touchspin.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\Flags\css\flag-icon.css" />
     <Content Include="Content\Flags\css\flag-icon.min.css" />
@@ -795,6 +804,7 @@
     <Content Include="Scripts\jquery-3.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.bootstrap-touchspin.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -813,6 +823,7 @@
     <Content Include="Scripts\to-markdown.js" />
     <Content Include="Scripts\tag-it.js" />
     <Content Include="Scripts\tags.js" />
+    <Content Include="Scripts\touchspin.js" />
     <Content Include="Scripts\zepto.dragswap.js" />
     <Content Include="Scripts\zepto.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -861,6 +872,8 @@
     <Content Include="Views\Shared\_LayoutSidebarShowPage.cshtml" />
     <Content Include="Views\Search\Tag.cshtml" />
     <Content Include="Views\Shared\EditPanelProfile.cshtml" />
+    <Content Include="Views\SiteBuilder\ListPagesEdit.cshtml" />
+    <Content Include="Views\SiteBuilder\EditPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

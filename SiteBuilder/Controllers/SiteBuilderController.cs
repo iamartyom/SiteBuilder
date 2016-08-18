@@ -105,6 +105,7 @@ namespace SiteBuilder.Controllers
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
                 var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
+                ViewBag.page = page;
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
@@ -124,12 +125,32 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult EditSite(int parameter1)
         {
+            ViewBag.id = parameter1;
             ViewBag.typeMenus = db.TypeMenus.ToList();
             ViewBag.styleTypes = db.StyleTypes.ToList();
 
             Site site = db.Sites.First(c => c.Id == parameter1);
 
             return View(site);
+        }
+
+        public ActionResult ListPagesEdit(int parameter1)
+        {
+            ViewBag.pages = db.Pages.Where(c => c.SiteId == parameter1).ToList();
+
+            return View();
+        }
+
+        public ActionResult EditPage(int parameter1)
+        {
+            var query = db.Pages.First(c => c.Id == parameter1);
+            var nameSite = query.Site.Name;
+            var nameUser = db.Sites.First(c => c.Id == query.SiteId).User.UserName;
+            var namePage = query.Name;
+
+            Show(nameUser, nameSite, namePage);
+
+            return View();
         }
 
         [HttpPost]

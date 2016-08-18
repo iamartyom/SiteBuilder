@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "ListPagesEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Select pages to edit:</h2><br>
+
+@foreach (var page in ViewBag.pages)
+{
+    <p class="text-center" style="font-size: 26px"><a href="/SiteBuilder/EditPage/@page.Id">@page.Name</a></p>
+}
+

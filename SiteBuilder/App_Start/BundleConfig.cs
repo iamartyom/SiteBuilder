@@ -42,6 +42,10 @@ namespace SiteBuilder
             bundles.Add(new ScriptBundle("~/bundles/editsitepanel").Include(
                         "~/Scripts/editSitePanel.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-touchspin").Include(
+                        "~/Scripts/touchspin.js",
+                        "~/Scripts/jquery.bootstrap-touchspin.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -78,6 +82,9 @@ namespace SiteBuilder
             bundles.Add(new StyleBundle("~/Content/tags").Include(
                       "~/Content/tagit.css",
                       "~/Content/tagit-ui.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-touchspin").Include(
+                      "~/Content/jquery.bootstrap-touchspin.css"));
         }
     }
 }
