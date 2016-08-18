@@ -5,6 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts {
+    @if (Model.Profile.UserName == User.Identity.Name)
+    {
+        @Scripts.Render("~/bundles/editsitepanel")
+    }    
+}
+
 <h2 class="text-center">Profile user @Model.Profile.UserName.</h2>
 <div class="text-center">
     @if (Model.Profile.UserName == User.Identity.Name)
@@ -37,28 +44,6 @@
                     </tr>
                 }
         </tbody>
-        <script>
-            $(function () {
-                $('.userSite').mouseover(function () {
-                    loadEditPanel(this);
-                });
-            });
-
-            function loadEditPanel(element) {
-                $.ajax({
-                    type: 'POST',
-                    url: "/User/LoadEditPanel/",
-                    data: {
-                        nameSite: $(element).children(':first').attr('id'),
-                        user : $(element).children(':first').attr('class')
-                    },
-                    success: function (data) {
-                        $('.editPanel').empty();
-                        $(element).after(data);
-                    }
-                });
-            }
-        </script>
     </table>
 </div>
 
