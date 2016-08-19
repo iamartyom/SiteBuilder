@@ -49,6 +49,10 @@ namespace SiteBuilder
             bundles.Add(new ScriptBundle("~/bundles/updatecontent").Include(
                         "~/Scripts/updateContent.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/showcomments").Include(
+                        "~/Scripts/jquery-comments.js",
+                        "~/Scripts/showComments.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -88,6 +92,9 @@ namespace SiteBuilder
 
             bundles.Add(new StyleBundle("~/Content/bootstrap-touchspin").Include(
                       "~/Content/jquery.bootstrap-touchspin.css"));
+
+            bundles.Add(new StyleBundle("~/Content/comments").Include(
+                      "~/Content/jquery-comments.css"));
         }
     }
 }

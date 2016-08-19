@@ -15,13 +15,17 @@
 @section Styles {
     @Styles.Render("~/Content/bootstrap-" + ViewBag.siteInfo.StyleType.Name)
     @Styles.Render("~/Content/bootstrap-touchspin")
-    }
+    @Styles.Render("~/Content/comments")
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+}
 
-        <div>
+        @*<div>
             <input id="demo_vertical2" type="text" value="" name="demo_vertical2">
-        </div>
+        </div>*@
         <input type="hidden" value="@ViewBag.templateData.Name" id="templateName" />
         <input type="hidden" value="@ViewBag.templateData.CountBlocks" id="countBlocksTemplate" />
+        <input type="hidden" value="@ViewBag.id" id="idPage" />
+        <input type="hidden" value="@ViewBag.userId" id="idUser" />
 @{
     int counter = 1;
 
@@ -36,4 +40,5 @@
 
     <div class="container">
             <div id="layout"></div>
+            <div id="comments"></div>
     </div>

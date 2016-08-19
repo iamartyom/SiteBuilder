@@ -110,6 +110,7 @@ namespace SiteBuilder.Controllers
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
+                ViewBag.userId = db.Users.First(c => c.UserName == parameter1).Id;
                 ViewBag.nameSite = nameSite;
                 ViewBag.siteInfo = siteInfo;
 
@@ -256,6 +257,21 @@ namespace SiteBuilder.Controllers
             content.Data = data;
             content.ContentTypeId = contentTypeId;
 
+            db.SaveChanges();
+
+            return "Success";
+        }
+
+        public ActionResult ShowComments(int id)
+        {
+            ViewBag.comments = db.Comments.Where(c => c.PageId == id).ToList();
+
+            return PartialView("Comments");
+        }
+
+        public string SaveComment(Comment comment)
+        {
+            db.Comments.Add(comment);
             db.SaveChanges();
 
             return "Success";
