@@ -10,10 +10,8 @@
             if (ui.draggable.attr('id') == "image") {
                 uploadImage(this);
             }
-            else if (ui.draggable.attr('id') == "video") {
-                var src = prompt("Add link youtube video");
-                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width() / 4 * 3 + '" src="//www.youtube.com/embed/' + getId(src) + '" frameborder="0" class="2"></iframe>';
-                add(this, code);
+            else if (ui.draggable.attr('id') == "video") {;
+                askBox(this);
             }
             else if (ui.draggable.attr('id') == "text") {
                 markdownEditor(this);
@@ -25,15 +23,43 @@
     });
 });
 
-function getId(url) {
+function getVideoId(url) {
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     var match = url.match(regExp);
-
-    if (match && match[2].length == 11) {
+    if (match && match[2].length == 11)
+    {
         return match[2];
-    } else {
-        return 'error';
     }
+    else
+    {
+        Example.show("Invalid youtube link");
+        return;
+    }
+}
+
+function askBox(element)
+{
+    bootbox.prompt
+        ({
+        title: "Enter youtube link",
+        callback: function (result)
+        {
+            if (result === null)
+            {
+                return;
+            }
+            else
+            {
+                var videoId = getVideoId(result);
+                if (typeof videoId == 'undefined')
+                {
+                    return;
+                }
+                var code = '<iframe width="' + $(element).width() + '" height = "' + $(element).width() / 4 * 3 + '" src="//www.youtube.com/embed/' + videoId + '" frameborder="0" class="2"></iframe>';
+                add(element, code);
+            }
+        }
+    })
 }
 
 function markdownEditor(element) {

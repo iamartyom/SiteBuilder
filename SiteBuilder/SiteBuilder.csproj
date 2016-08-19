@@ -784,6 +784,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\application.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-markdown.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -802,6 +803,7 @@
     <Content Include="Scripts\cloudinary_all.js" />
     <Content Include="Scripts\DragNDrop.js" />
     <Content Include="Scripts\editSitePanel.js" />
+    <Content Include="Scripts\example.js" />
     <Content Include="Scripts\jqcloud.min.js" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />

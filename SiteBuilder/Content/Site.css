@@ -17,11 +17,11 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .text-center {
     text-align: center;
@@ -97,3 +97,16 @@ div.centre
     font-size: 20px;
 }
 
+#likesButtons {
+    padding-top: 7px;
+    white-space: nowrap;
+}
+
+#likesCounter {
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-left: 15px;
+    margin-top: 7px;
+    border-radius: 5px;
+    background-color: white;
+}

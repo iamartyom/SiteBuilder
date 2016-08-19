@@ -9,7 +9,6 @@
     @Styles.Render("~/Content/bootstrap-markdown")
  }
 
-
 <h1 class="text-center">CreatePage</h1><br>
 
 
@@ -36,6 +35,11 @@
     </div>
 
     <div class="row">
+
+        <div class="bb-alert alert alert-danger" style="display: none;">
+            <span>Youtube</span>
+        </div>
+
 
         <div class="col-sm-6" id="nameForm">
             <div class="center">
@@ -108,5 +112,13 @@
     @Scripts.Render("~/bundles/jquery-ui")
     @Scripts.Render("~/bundles/loadstarttemplate")
     @Scripts.Render("~/bundles/loadtemplate")    
-    @Scripts.Render("~/bundles/bootstrap-markdown")
+    @Scripts.Render("~/bundles/bootstrap-markdown")    
+    <script src="~/Scripts/example.js"></script>
+    <script>
+        $(function () {
+            Example.init({
+                "selector": ".bb-alert"
+            });
+        });
+    </script>
 }
