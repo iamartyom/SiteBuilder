@@ -11,9 +11,8 @@
                 uploadImage(this);
             }
             else if (ui.draggable.attr('id') == "video") {
-                var src = prompt("Add link youtube video");
-                var code = '<iframe width="' + $(this).width() + '" height = "' + $(this).width() / 4 * 3 + '" src="//www.youtube.com/embed/' + getId(src) + '" frameborder="0" class="2"></iframe>';
-                add(this, code);
+                //var src = prompt("Add link youtube video");
+                askBox(this);
             }
             else if (ui.draggable.attr('id') == "text") {
                 markdownEditor(this);
@@ -25,15 +24,50 @@
     });
 });
 
-function getId(url) {
+function getVideoId(url) {
     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    alert('Video id ' + url);
     var match = url.match(regExp);
-
-    if (match && match[2].length == 11) {
+    if (match && match[2].length == 11)
+    {
         return match[2];
-    } else {
+    }
+    else
+    {
         return 'error';
     }
+}
+
+function askBox(element) {
+    //bootbox.prompt({
+    //    title: "Enter youtube link",
+    //    message: '<div class="bb-alert alert alert-danger" style="display: none;">' +
+    //                '<span>Youtube</span>' +
+    //              '</div>/'
+    //},
+    //function (result) {
+    //    if (result === null) {
+    //        askBox();
+    //        return;
+    //    } else {
+    //        Example.show("Hi <b>" + result + "</b>");
+    //        return result;
+    //    }
+    //})
+    //}
+    bootbox.prompt("Enter youtube link", function (result) {
+        if (result === null) {
+            askBox();
+            return;
+        } else {
+
+            Example.show("Hi <b>" + result + "</b>");
+            var videoId = getVideoId(result);
+            console.log(getVideoId);
+            var code = '<iframe width="' + $(element).width() + '" height = "' + $(element).width() / 4 * 3 + '" src="//www.youtube.com/embed/' + videoId + '" frameborder="0" class="2"></iframe>';
+            add(element, code);
+        }
+    })
 }
 
 function markdownEditor(element) {
