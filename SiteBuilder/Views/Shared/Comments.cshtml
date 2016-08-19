@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<br><br><h2 class="text-center">Comments</h2><br>
+<div id="comments-container"></div><br><br>
+
+<script>
+    var commentsArray = [
+        @foreach (var comment in ViewBag.comments)
+        {
+            <text>
+                {
+                    "id": @comment.Id,
+                    "created": "@comment.Date.Year-@comment.Date.Month-@comment.Date.Day @comment.Date.Hour:@comment.Date.Minute:@comment.Date.Second",
+                    "content": "@comment.Content",
+                    "fullname": "@comment.User.UserName",
+                    "profile_picture_url": "https://app.viima.com/static/media/user_profiles/user-icon.png",},
+            </text>
+        }
+    ]
+</script>

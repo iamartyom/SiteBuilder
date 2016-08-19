@@ -213,8 +213,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608191957182_a.cs" />
+    <Compile Include="Migrations\201608191957182_a.Designer.cs">
+      <DependentUpon>201608191957182_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddSite.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Content.cs" />
     <Compile Include="Models\ContentType.cs" />
     <Compile Include="Models\DataInitializer.cs" />
@@ -251,6 +257,8 @@
     <Content Include="Content\bootstrap-min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\jquery-comments.css" />
     <Content Include="Content\jquery.bootstrap-touchspin.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\Flags\css\flag-icon.css" />
@@ -805,6 +813,7 @@
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-comments.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.bootstrap-touchspin.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -820,6 +829,7 @@
     <Content Include="Scripts\pageSort.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showComments.js" />
     <Content Include="Scripts\showdown.js" />
     <Content Include="Scripts\showPageSite.js" />
     <Content Include="Scripts\to-markdown.js" />
@@ -877,6 +887,7 @@
     <Content Include="Views\Shared\EditPanelProfile.cshtml" />
     <Content Include="Views\SiteBuilder\ListPagesEdit.cshtml" />
     <Content Include="Views\SiteBuilder\EditPage.cshtml" />
+    <Content Include="Views\Shared\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -886,6 +897,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608191957182_a.resx">
+      <DependentUpon>201608191957182_a.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
