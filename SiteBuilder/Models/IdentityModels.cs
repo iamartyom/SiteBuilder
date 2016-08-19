@@ -36,6 +36,7 @@ namespace SiteBuilder.Models
         public DbSet<Tag> Tags { get; set; }
         public DbSet<TagSite> TagSites { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
 
         public static ApplicationDbContext Create()
         {

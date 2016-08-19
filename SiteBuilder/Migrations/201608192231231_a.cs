@@ -7,12 +7,12 @@ namespace SiteBuilder.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.Comments", "Date", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.Ratings", "UserId", c => c.String());
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Comments", "Date", c => c.DateTime(nullable: false, storeType: "date"));
+            AlterColumn("dbo.Ratings", "UserId", c => c.Int(nullable: false));
         }
     }
 }

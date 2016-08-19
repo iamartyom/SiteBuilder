@@ -14,6 +14,7 @@
     @Scripts.Render("~/bundles/showdown")
     @Scripts.Render("~/bundles/bootstrap-touchspin")
     @Scripts.Render("~/bundles/showcomments")
+    @Scripts.Render("~/bundles/rating")
 
 </head>
 <body>
@@ -41,17 +42,17 @@
                     </ul>
                     
                     <div class="nav navbar-nav navbar-right" id="likesCounter">
-                        <h4>0</h4>
+                        <h4>@ViewBag.rating</h4> 
                     </div>
 
                     <div class="nav navbar-nav navbar-right" id="likesButtons">
 
                         <div class="button-group">
 
-                            <button type="button" class="btn btn-labeled btn-success">
+                            <button type="button" class="btn btn-labeled btn-success @ViewBag.ratingEnabled" id="upRating">
                                 <span class="btn-label"><i class="glyphicon glyphicon-thumbs-up"></i></span>
                             </button>
-                            <button type="button" class="btn btn-labeled btn-danger">
+                            <button type="button" class="btn btn-labeled btn-danger @ViewBag.ratingEnabled" id="downRating">
                                 <span class="btn-label"><i class="glyphicon glyphicon-thumbs-down"></i></span>
                             </button>
 

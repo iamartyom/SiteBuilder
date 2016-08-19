@@ -213,9 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608191957182_a.cs" />
-    <Compile Include="Migrations\201608191957182_a.Designer.cs">
-      <DependentUpon>201608191957182_a.cs</DependentUpon>
+    <Compile Include="Migrations\201608192231231_a.cs" />
+    <Compile Include="Migrations\201608192231231_a.Designer.cs">
+      <DependentUpon>201608192231231_a.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -227,6 +227,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\ShowSite.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\StyleType.cs" />
@@ -827,6 +828,7 @@
     <Content Include="Scripts\marked.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pageSort.js" />
+    <Content Include="Scripts\rating.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\showComments.js" />
@@ -897,8 +899,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608191957182_a.resx">
-      <DependentUpon>201608191957182_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608192231231_a.resx">
+      <DependentUpon>201608192231231_a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
