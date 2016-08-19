@@ -826,6 +826,7 @@
     <Content Include="Scripts\tag-it.js" />
     <Content Include="Scripts\tags.js" />
     <Content Include="Scripts\touchspin.js" />
+    <Content Include="Scripts\updateContent.js" />
     <Content Include="Scripts\zepto.dragswap.js" />
     <Content Include="Scripts\zepto.min.js" />
     <Content Include="Scripts\_references.js" />

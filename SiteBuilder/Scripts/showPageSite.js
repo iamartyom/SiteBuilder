@@ -20,19 +20,19 @@ function addContent() {
 
         var contentType = document.getElementById('content_'+i).className;
         var data = document.getElementById('content_' + i).value;
-        var templateContent = '';
+        var templateContent = null;
 
         var widthBlock = $('#droppable' + i).width();
 
         switch (contentType) {
             case 'Image':
-                templateContent = '<img src="' + data + '" width="' + widthBlock + '" />'
+                templateContent = '<img src="' + data + '" width="' + widthBlock + '" class="1" />'
                 break;
             case 'Video':
                 templateContent = '<iframe width="' + widthBlock + '" height = "' + widthBlock / 4 * 3 + '" src="' + data + '" frameborder="0" class="2"></iframe>';
                 break;
             case 'Markdown':
-                templateContent = markDownToHtml(data);
+                templateContent = '<input type="hidden" class="3"><div>' + markDownToHtml(data);
                 break;
             default:
                 break;

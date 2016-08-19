@@ -106,6 +106,7 @@ namespace SiteBuilder.Controllers
                 var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
                 ViewBag.page = page;
+                ViewBag.id = db.Pages.First(c => c.Name == page).Id;
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
@@ -227,6 +228,37 @@ namespace SiteBuilder.Controllers
             db.SaveChanges();
 
             Response.Redirect(Request.UrlReferrer.ToString());
+        }
+
+        public ActionResult DeletePage(int parameter1)
+        {
+            var idSite = db.Pages.First(c => c.Id == parameter1).SiteId;
+
+            db.Pages.Remove(db.Pages.First(c => c.Id == parameter1));
+            db.SaveChanges();
+
+            return RedirectToAction("ListPagesEdit", "SiteBuilder", new { parameter1 = idSite });
+        }
+
+        public string UpdatePageName(int id, string name)
+        {
+            var page = db.Pages.First(c => c.Id == id);
+            page.Name = name;
+            db.SaveChanges();
+
+            return "Success";
+        }
+
+        public string UpdateContent(int id, int position, string data, int contentTypeId)
+        {
+            var content = db.Contents.First(c => c.PageId == id && c.Position == position);
+
+            content.Data = data;
+            content.ContentTypeId = contentTypeId;
+
+            db.SaveChanges();
+
+            return "Success";
         }
     }
 }
