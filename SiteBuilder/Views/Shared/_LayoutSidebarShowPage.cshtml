@@ -44,9 +44,23 @@
                                     </li>
                                 }
                             </ul>
-                            <form class="navbar-form navbar-left">
-                                @*Тут кнопка с рейтингом*@
-                            </form>
+
+                            <div class="nav navbar-nav navbar-left" id="likesButtons">
+
+                                <div class="button-group">
+                                    <button type="button" class="btn btn-labeled btn-success" style="display: inline-block">
+                                        <span class="btn-label"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-labeled btn-danger" style="display: inline-block">
+                                        <span class="btn-label"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                                    </button>
+
+                                    <div id="likesCounter" style="display: inline-block">
+                                        <h4>0</h4>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
