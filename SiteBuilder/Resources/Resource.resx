@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Achievement" xml:space="preserve">
+    <value>Achievement</value>
+  </data>
+  <data name="AchievementMessage" xml:space="preserve">
+    <value>You don`t have any achievements yet.</value>
+  </data>
+  <data name="AddPage" xml:space="preserve">
+    <value>Add page</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Site Builder</value>
   </data>
@@ -126,11 +135,23 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm password</value>
   </data>
+  <data name="CreateSite" xml:space="preserve">
+    <value>Create site</value>
+  </data>
   <data name="CreateUser" xml:space="preserve">
     <value>Create user</value>
   </data>
+  <data name="DeleteSite" xml:space="preserve">
+    <value>Delete site</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="DescriptionMainPage" xml:space="preserve">
     <value>create your own site</value>
+  </data>
+  <data name="EditSite" xml:space="preserve">
+    <value>Edit site</value>
   </data>
   <data name="Find" xml:space="preserve">
     <value>Find</value>
@@ -156,6 +177,9 @@
   <data name="Main" xml:space="preserve">
     <value>Main page</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -170,5 +194,11 @@
   </data>
   <data name="Sites" xml:space="preserve">
     <value>Sites</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>Profile user</value>
   </data>
 </root>

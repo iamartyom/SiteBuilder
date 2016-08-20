@@ -12,19 +12,19 @@
     }    
 }
 
-<h2 class="text-center">Profile user @Model.Profile.UserName.</h2>
+<h2 class="text-center">@Resources.Resource.UserProfile @Model.Profile.UserName.</h2>
 <div class="text-center">
     @if (Model.Profile.UserName == User.Identity.Name)
     {
-        <a href="/SiteBuilder/CreateSite/" class="btn btn-info">Create site</a>
+        <a href="/SiteBuilder/CreateSite/" class="btn btn-info">@Resources.Resource.CreateSite</a>
     }
 </div><br><br>
-<h3 class="text-center">Achievement:</h3>
+<h3 class="text-center">@Resources.Resource.Achievement:</h3>
 <div class="achievement">
     @{
         if (ViewBag.achievements.Count == 0)
         {
-            <h5 class="text-center">You don`t have any achievements yet.</h5>
+            <h5 class="text-center">@Resources.Resource.AchievementMessage</h5>
         }
         else
         {
@@ -37,13 +37,13 @@
     }
 </div><br>
 <div class="container-table-site">
-    <h3 class="text-center">Sites:</h3><br><br>
+    <h3 class="text-center">@Resources.Resource.Sites:</h3><br><br>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Tags</th>
+                <th>@Resources.Resource.Name</th>
+                <th>@Resources.Resource.Description</th>
+                <th>@Resources.Resource.Tags</th>
             </tr>
         </thead>
         <tbody>

@@ -213,9 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608201627061_a.cs" />
-    <Compile Include="Migrations\201608201627061_a.Designer.cs">
-      <DependentUpon>201608201627061_a.cs</DependentUpon>
+    <Compile Include="Migrations\201608202240316_a.cs" />
+    <Compile Include="Migrations\201608202240316_a.Designer.cs">
+      <DependentUpon>201608202240316_a.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -901,8 +901,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608201627061_a.resx">
-      <DependentUpon>201608201627061_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608202240316_a.resx">
+      <DependentUpon>201608202240316_a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

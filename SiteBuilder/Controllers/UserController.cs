@@ -1,4 +1,5 @@
-﻿using SiteBuilder.Models;
+﻿using SiteBuilder.Filters;
+using SiteBuilder.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace SiteBuilder.Controllers
 {
+    [Culture]
     public class UserController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
