@@ -231,10 +231,6 @@
     <Compile Include="Lucene\SearchComments.cs" />
     <Compile Include="Lucene\SearchPage.cs" />
     <Compile Include="Lucene\SearchTags.cs" />
-    <Compile Include="Migrations\201608202240316_a.cs" />
-    <Compile Include="Migrations\201608202240316_a.Designer.cs">
-      <DependentUpon>201608202240316_a.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achievement.cs" />
@@ -920,9 +916,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608202240316_a.resx">
-      <DependentUpon>201608202240316_a.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
