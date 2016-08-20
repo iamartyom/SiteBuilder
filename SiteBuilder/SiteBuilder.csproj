@@ -231,8 +231,6 @@
     <Compile Include="Lucene\SearchComments.cs" />
     <Compile Include="Lucene\SearchPage.cs" />
     <Compile Include="Lucene\SearchTags.cs" />
-    <Compile Include="Migrations\201608192214055_Initial.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\AchievementType.cs" />

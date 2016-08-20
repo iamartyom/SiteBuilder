@@ -124,11 +124,6 @@ namespace SiteBuilder.Lucene
             return _search(input, fieldName);
         }
 
-        public static IEnumerable<Tag> SearchDefault(string input, string fieldName = "")
-        {
-            return string.IsNullOrEmpty(input) ? new List<Tag>() : _search(input, fieldName);
-        }
-
         public static IEnumerable<Tag> GetAllIndexRecords()
         {
             // validate search index

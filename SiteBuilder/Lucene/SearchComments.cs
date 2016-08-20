@@ -124,11 +124,6 @@ namespace SiteBuilder.Lucene
             return _search(input, fieldName);
         }
 
-        public static IEnumerable<Comment> SearchDefault(string input, string fieldName = "")
-        {
-            return string.IsNullOrEmpty(input) ? new List<Comment>() : _search(input, fieldName);
-        }
-
         public static IEnumerable<Comment> GetAllIndexRecords()
         {
             // validate search index
