@@ -122,7 +122,7 @@ namespace SiteBuilder.Controllers
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
-                ViewBag.userId = db.Users.First(c => c.UserName == parameter1).Id;
+                ViewBag.userId = UserId();
                 ViewBag.nameSite = nameSite;
                 ViewBag.siteInfo = siteInfo;
                 ViewBag.rating = rating;

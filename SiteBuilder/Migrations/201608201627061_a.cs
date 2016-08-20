@@ -7,12 +7,14 @@ namespace SiteBuilder.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.Ratings", "UserId", c => c.String());
+            AddColumn("dbo.AchievementTypes", "Image", c => c.String());
+            DropColumn("dbo.Achievements", "Image");
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Ratings", "UserId", c => c.Int(nullable: false));
+            AddColumn("dbo.Achievements", "Image", c => c.String());
+            DropColumn("dbo.AchievementTypes", "Image");
         }
     }
 }
