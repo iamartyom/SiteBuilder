@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Achievement" xml:space="preserve">
+    <value>Достижения</value>
+  </data>
+  <data name="AchievementMessage" xml:space="preserve">
+    <value>У вас пока нет достижений.</value>
+  </data>
+  <data name="AddPage" xml:space="preserve">
+    <value>Добавить страницу</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Конструктор сайтов</value>
   </data>
@@ -126,11 +135,23 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтвердите пароль</value>
   </data>
+  <data name="CreateSite" xml:space="preserve">
+    <value>Создать сайт</value>
+  </data>
   <data name="CreateUser" xml:space="preserve">
     <value>Создал пользователь</value>
   </data>
+  <data name="DeleteSite" xml:space="preserve">
+    <value>Удалить сайт</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
   <data name="DescriptionMainPage" xml:space="preserve">
     <value>создай свой сайт</value>
+  </data>
+  <data name="EditSite" xml:space="preserve">
+    <value>Редактировать сайт</value>
   </data>
   <data name="Find" xml:space="preserve">
     <value>Найти</value>
@@ -156,6 +177,9 @@
   <data name="Main" xml:space="preserve">
     <value>Главная страница</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
   </data>
@@ -170,5 +194,11 @@
   </data>
   <data name="Sites" xml:space="preserve">
     <value>Сайты</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>Профиль пользователя</value>
   </data>
 </root>

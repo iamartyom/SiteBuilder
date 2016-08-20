@@ -61,6 +61,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Achievement.
+        /// </summary>
+        public static string Achievement {
+            get {
+                return ResourceManager.GetString("Achievement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You don`t have any achievements yet..
+        /// </summary>
+        public static string AchievementMessage {
+            get {
+                return ResourceManager.GetString("AchievementMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add page.
+        /// </summary>
+        public static string AddPage {
+            get {
+                return ResourceManager.GetString("AddPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Site Builder.
         /// </summary>
         public static string ApplicationName {
@@ -88,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create site.
+        /// </summary>
+        public static string CreateSite {
+            get {
+                return ResourceManager.GetString("CreateSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create user.
         /// </summary>
         public static string CreateUser {
@@ -97,11 +133,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete site.
+        /// </summary>
+        public static string DeleteSite {
+            get {
+                return ResourceManager.GetString("DeleteSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to create your own site.
         /// </summary>
         public static string DescriptionMainPage {
             get {
                 return ResourceManager.GetString("DescriptionMainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit site.
+        /// </summary>
+        public static string EditSite {
+            get {
+                return ResourceManager.GetString("EditSite", resourceCulture);
             }
         }
         
@@ -178,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -219,6 +291,24 @@ namespace Resources {
         public static string Sites {
             get {
                 return ResourceManager.GetString("Sites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags.
+        /// </summary>
+        public static string Tags {
+            get {
+                return ResourceManager.GetString("Tags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile user.
+        /// </summary>
+        public static string UserProfile {
+            get {
+                return ResourceManager.GetString("UserProfile", resourceCulture);
             }
         }
     }
