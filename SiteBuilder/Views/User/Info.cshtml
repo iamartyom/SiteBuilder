@@ -18,7 +18,24 @@
     {
         <a href="/SiteBuilder/CreateSite/" class="btn btn-info">Create site</a>
     }
-</div>
+</div><br><br>
+<h3 class="text-center">Achievement:</h3>
+<div class="achievement">
+    @{
+        if (ViewBag.achievements.Count == 0)
+        {
+            <h5 class="text-center">You don`t have any achievements yet.</h5>
+        }
+        else
+        {
+            foreach (var achievement in ViewBag.achievements)
+            {
+                <img src="@achievement.AchievementType.Image" />
+                <h5>@achievement.AchievementType.Text</h5>
+            }
+        }
+    }
+</div><br>
 <div class="container-table-site">
     <h3 class="text-center">Sites:</h3><br><br>
     <table class="table table-striped">

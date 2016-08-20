@@ -105,14 +105,27 @@ namespace SiteBuilder.Controllers
                 var contentList = pageList.Where(c => c.Name == page).Select(c => c.Contents).FirstOrDefault().OrderBy(c => c.Position).ToList();                
                 var siteInfo = db.Sites.Where(c => c.Name == nameSite).FirstOrDefault();
 
+                var ratingInfo = db.Ratings.Where(c => c.SiteId == siteInfo.Id).ToList();
+                var rating = ratingInfo.Count(c => c.Like == true) - ratingInfo.Count(c => c.Like == false);
+                var userId = UserId();
+                var ratingEnabled = ratingInfo.FirstOrDefault(c => c.UserId == userId);
+
+                ViewBag.ratingEnabled = "disabled";
+
+                if (ratingEnabled == default(Rating))
+                {
+                    ViewBag.ratingEnabled = "";
+                }
+
                 ViewBag.page = page;
                 ViewBag.id = db.Pages.First(c => c.Name == page).Id;
                 ViewBag.pages = pageList;
                 ViewBag.contentList = contentList;
                 ViewBag.user = parameter1;
-                ViewBag.userId = db.Users.First(c => c.UserName == parameter1).Id;
+                ViewBag.userId = UserId();
                 ViewBag.nameSite = nameSite;
                 ViewBag.siteInfo = siteInfo;
+                ViewBag.rating = rating;
 
                 ViewBag.templateData = pageList.Where(c => c.Name == page).Select(c => c.Template).FirstOrDefault();
             }
@@ -272,6 +285,14 @@ namespace SiteBuilder.Controllers
         public string SaveComment(Comment comment)
         {
             db.Comments.Add(comment);
+            db.SaveChanges();
+
+            return "Success";
+        }
+
+        public string AddRating(Rating rating)
+        {
+            db.Ratings.Add(rating);
             db.SaveChanges();
 
             return "Success";
