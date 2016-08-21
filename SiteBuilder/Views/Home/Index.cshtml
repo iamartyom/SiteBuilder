@@ -33,7 +33,7 @@
             @foreach (var tag in ViewBag.Tags)
             {
                 <text>
-                { text: "@tag.Name", weight: 10.5, link: '/Search/Tag/@tag.Name' },
+                { text: "@tag.Name", weight: @tag.Count, link: '/Search/Tag/@tag.Name' },
                 </text>
             }
         ];

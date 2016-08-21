@@ -249,6 +249,7 @@
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\StyleType.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TagCloud.cs" />
     <Compile Include="Models\TagSite.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\TypeMenu.cs" />
@@ -911,6 +912,8 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\SiteBuilder\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\Template\Template4.cshtml" />
+    <Content Include="Views\Shared\Template\Template5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

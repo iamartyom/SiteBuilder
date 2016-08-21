@@ -179,7 +179,7 @@ namespace SiteBuilder.Controllers
 
         public ActionResult EditPage(int parameter1)
         {
-            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            if (db.Pages.FirstOrDefault(c => c.Id == parameter1).Site.UserId == UserId())
             {
                 var query = db.Pages.First(c => c.Id == parameter1);
                 var nameSite = query.Site.Name;

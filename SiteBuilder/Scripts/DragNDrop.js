@@ -5,15 +5,17 @@
         },
     });
 
-    $('#droppable1, #droppable2, #droppable3, #droppable4').droppable({
+    $('[id^=droppable\]').droppable({
         drop: function (event, ui) {
-            if (ui.draggable.attr('id') == "image") {
+            var id = ui.draggable.attr('id');
+
+            if (id == "image") {
                 uploadImage(this);
             }
-            else if (ui.draggable.attr('id') == "video") {;
+            else if (id == "video") {
                 askBox(this);
             }
-            else if (ui.draggable.attr('id') == "text") {
+            else if (id == "text") {
                 markdownEditor(this);
             }
             else {
@@ -65,8 +67,13 @@ function askBox(element)
 function markdownEditor(element) {
     $('#myModal').modal();
     $('#textButton').unbind().click(function () {
-        var formData = '<input type="hidden" class="3"><div>' + $('#textareaForm').data('markdown').parseContent() + '</div>';
-        add(element, formData);
+        if ($('#textareaForm').data('markdown').parseContent() != "") {
+            var formData = '<input type="hidden" class="3"><div>' + $('#textareaForm').data('markdown').parseContent() + '</div>';
+            add(element, formData);
+        }
+        else {
+            Example.show('You didn`t input text');
+        }
     });
 }
 
@@ -88,19 +95,24 @@ function add(element, code) {
 }
 
 function submitForm(pageNumber) {
-    var countBlocksTemplate = Number(blocksTemplate()) + 1;
+    if ($('#inputPageName').val().length != 0) {
+        var countBlocksTemplate = Number(blocksTemplate()) + 1;
 
-    var result = 0;
+        var result = 0;
 
-    for (var i = 1; i < countBlocksTemplate; i++) {
-        result += checkEmpty('#droppable' + i);
-    }
+        for (var i = 1; i < countBlocksTemplate; i++) {
+            result += checkEmpty('#droppable' + i);
+        }
 
-    if (result == (countBlocksTemplate-1)) {
-        savePage($('#inputSiteId').attr('value'), $('#inputPageName').val(), pageNumber);
+        if (result == (countBlocksTemplate - 1)) {
+            savePage($('#inputSiteId').attr('value'), $('#inputPageName').val(), pageNumber);
+        }
+        else {
+            alert('Please insert data in layout.');
+        }
     }
     else {
-        alert('Please insert data in layout.');
+        Example.show('Input page name please');
     }
 }
 

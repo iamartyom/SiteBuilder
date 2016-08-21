@@ -16,7 +16,7 @@ namespace SiteBuilder.Controllers
         [Culture]
         public ActionResult Index()
         {
-            ViewBag.Tags = db.Tags.ToList();
+            ViewBag.Tags = db.Tags.Select(c => new TagCloud { Id = c.Id, Name = c.Name, Count = c.TagsSites.Count(x => x.TagId == c.Id) + 1 }).ToList();
             ViewBag.sites = db.Sites.OrderByDescending(c => c.Id).Select(c => new ShowSite { NameSite = c.Name, NameUser = c.User.UserName, NamePage = c.Pages.FirstOrDefault().Name }).Take(5).ToList();
 
             return View();

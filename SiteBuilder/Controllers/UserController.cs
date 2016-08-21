@@ -21,7 +21,7 @@ namespace SiteBuilder.Controllers
                 var model = new UserInfo
                 {
                     Profile = db.Users.Where(c => c.UserName == parameter1).FirstOrDefault(),
-                    Sites = db.Sites.OrderByDescending(c => c.Id).Select(c => new ShowSite { NameSite = c.Name, NameUser = c.User.UserName, Description = c.Description, NamePage = c.Pages.FirstOrDefault().Name, TagSite = c.TagSites }).Where(c => c.NameUser == parameter1).ToList(),
+                    Sites = db.Sites.OrderByDescending(c => c.Id).Select(c => new ShowSite { NameSite = c.Name, NameUser = c.User.UserName, Description = c.Description, NamePage = c.Pages.OrderBy(x => x.PageNumber).FirstOrDefault().Name, TagSite = c.TagSites }).Where(c => c.NameUser == parameter1).ToList(),
                 };
 
                 var userId = db.Users.First(c => c.UserName == parameter1).Id;
