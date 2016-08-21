@@ -12,19 +12,23 @@
 <legend>Database records (@Html.ActionLink("Create Search Index From Database [+]", "CreateIndex"))</legend>
 <legend>Clear index (@Html.ActionLink("Clear index", "CreateIndex"))</legend>
 
-<h1> Founded Tags </h1>
+<p> Founded Pages</p>
+
+@foreach (var searchResultPage in ViewBag.searchResultsPages)
+{
+    <p>@searchResultPage.Name</p>
+}
+
+<p> Founded Tags </p>
 
 @foreach (var searchResult in ViewBag.searchResultsTags)
 {
     <a href="/Search/Tag/@searchResult.Name">@searchResult.Name</a>
 }
 
-<h1> Founded Comments </h1>
+<p> Founded Comments </p>
 
 @foreach (var searchResult in ViewBag.searchResultsComments)
 {
-    <h2> @searchResult.Id </h2>
-    <h2> @searchResult.Content </h2>
     <a href="/Search/CommentToPage/@searchResult.Id">@searchResult.Content</a>
-    string content = @searchResult.Content;
 }

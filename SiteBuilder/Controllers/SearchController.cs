@@ -50,6 +50,7 @@ namespace SiteBuilder.Controllers
 
             SearchTags.AddUpdateLuceneIndex(db.Tags.ToList());
             SearchComments.AddUpdateLuceneIndex(db.Comments.ToList());
+            SearchPage.AddUpdateLuceneIndex(db.Pages.ToList());
 
             List<Tag> _searchResultsTags;
             _searchResultsTags = SearchTags.Search(searchTerm).ToList();
@@ -57,10 +58,13 @@ namespace SiteBuilder.Controllers
             List<Comment> _searchResultsComments;
             _searchResultsComments = SearchComments.Search(searchTerm).ToList();
 
-            if (string.IsNullOrEmpty(searchTerm) && !_searchResultsTags.Any())
-                _searchResultsTags = SearchTags.GetAllIndexRecords().ToList();
+            List<Page> _searchResultsPages;
+            _searchResultsPages = SearchPage.Search(searchTerm).ToList();
 
-            
+            //if (string.IsNullOrEmpty(searchTerm) && !_searchResultsTags.Any())
+            //    _searchResultsTags = SearchTags.GetAllIndexRecords().ToList();
+
+
             //var limitDb = 50;
 
             //List<Tag> allTags;
@@ -73,6 +77,8 @@ namespace SiteBuilder.Controllers
             //else allTags = db.Tags.ToList();
 
             //ViewBag.allTags = allTags;
+
+            ViewBag.searchResultsPages = _searchResultsPages;
             ViewBag.searchResultsTags = _searchResultsTags;
             ViewBag.searchResultsComments = _searchResultsComments;
 
