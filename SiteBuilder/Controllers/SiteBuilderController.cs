@@ -73,15 +73,22 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult CreatePage(int parameter1)
         {
-            ViewBag.UserId = UserId();
-            ViewBag.SiteId = parameter1;
-            var siteData = db.Sites.Where(c => c.Id == parameter1).Select(c => c).FirstOrDefault();
-            string siteName = siteData.Name.ToString();
-            ViewBag.SiteName = siteName;
-            ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == parameter1).OrderBy(c => c.PageNumber).ToList();
-            ViewBag.Templates = db.Templates.Select(c => c).ToList();
+            if (db.Sites.First(c => c.Id == parameter1).UserId == UserId())
+            {
+                ViewBag.UserId = UserId();
+                ViewBag.SiteId = parameter1;
+                var siteData = db.Sites.Where(c => c.Id == parameter1).Select(c => c).FirstOrDefault();
+                string siteName = siteData.Name.ToString();
+                ViewBag.SiteName = siteName;
+                ViewBag.Pages = db.Pages.Select(c => c).Where(c => c.SiteId == parameter1).OrderBy(c => c.PageNumber).ToList();
+                ViewBag.Templates = db.Templates.Select(c => c).ToList();
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         [HttpPost]
@@ -131,7 +138,7 @@ namespace SiteBuilder.Controllers
             }
             catch (System.ArgumentNullException)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             
             return View();
@@ -140,32 +147,53 @@ namespace SiteBuilder.Controllers
         [HttpGet]
         public ActionResult EditSite(int parameter1)
         {
-            ViewBag.id = parameter1;
-            ViewBag.typeMenus = db.TypeMenus.ToList();
-            ViewBag.styleTypes = db.StyleTypes.ToList();
+            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            {
+                ViewBag.id = parameter1;
+                ViewBag.typeMenus = db.TypeMenus.ToList();
+                ViewBag.styleTypes = db.StyleTypes.ToList();
 
-            Site site = db.Sites.First(c => c.Id == parameter1);
+                Site site = db.Sites.First(c => c.Id == parameter1);
 
-            return View(site);
+                return View(site);
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         public ActionResult ListPagesEdit(int parameter1)
         {
-            ViewBag.pages = db.Pages.Where(c => c.SiteId == parameter1).ToList();
+            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            {
+                ViewBag.pages = db.Pages.Where(c => c.SiteId == parameter1).ToList();
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         public ActionResult EditPage(int parameter1)
         {
-            var query = db.Pages.First(c => c.Id == parameter1);
-            var nameSite = query.Site.Name;
-            var nameUser = db.Sites.First(c => c.Id == query.SiteId).User.UserName;
-            var namePage = query.Name;
+            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            {
+                var query = db.Pages.First(c => c.Id == parameter1);
+                var nameSite = query.Site.Name;
+                var nameUser = db.Sites.First(c => c.Id == query.SiteId).User.UserName;
+                var namePage = query.Name;
 
-            Show(nameUser, nameSite, namePage);
+                Show(nameUser, nameSite, namePage);
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         [HttpPost]
@@ -234,24 +262,39 @@ namespace SiteBuilder.Controllers
             return "SavePageNumber";
         }
 
-        public void DeleteSite(int parameter1)
+        public ActionResult DeleteSite(int parameter1)
         {
-            Site record = db.Sites.First(c => c.Id == parameter1);
+            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            {
+                Site record = db.Sites.First(c => c.Id == parameter1);
 
-            db.Sites.Remove(record);
-            db.SaveChanges();
+                db.Sites.Remove(record);
+                db.SaveChanges();
 
-            Response.Redirect(Request.UrlReferrer.ToString());
+                Response.Redirect(Request.UrlReferrer.ToString());
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         public ActionResult DeletePage(int parameter1)
         {
-            var idSite = db.Pages.First(c => c.Id == parameter1).SiteId;
+            if (db.Sites.FirstOrDefault(c => c.Id == parameter1).UserId == UserId())
+            {
+                var idSite = db.Pages.First(c => c.Id == parameter1).SiteId;
 
-            db.Pages.Remove(db.Pages.First(c => c.Id == parameter1));
-            db.SaveChanges();
+                db.Pages.Remove(db.Pages.First(c => c.Id == parameter1));
+                db.SaveChanges();
 
-            return RedirectToAction("ListPagesEdit", "SiteBuilder", new { parameter1 = idSite });
+                return RedirectToAction("ListPagesEdit", "SiteBuilder", new { parameter1 = idSite });
+            }
+            else
+            {
+                return RedirectToAction("AccessDenied", "SiteBuilder");
+            }
         }
 
         public string UpdatePageName(int id, string name)
@@ -296,6 +339,11 @@ namespace SiteBuilder.Controllers
             db.SaveChanges();
 
             return "Success";
+        }
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

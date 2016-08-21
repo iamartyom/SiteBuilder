@@ -110,3 +110,11 @@ div.centre
     border-radius: 5px;
     background-color: white;
 }
+
+.achievements {    
+}
+
+.achievement {
+    display: inline-block;
+    padding-left: 15px;
+}

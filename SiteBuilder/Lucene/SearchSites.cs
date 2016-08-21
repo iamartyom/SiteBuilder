@@ -14,33 +14,34 @@ using SiteBuilder.Models;
 
 namespace SiteBuilder.Lucene
 {
-    public class SearchComments : LuceneSearch
+    public class SearchSites : LuceneSearch
     {
-        private static void _addToLuceneIndex(Comment comment, IndexWriter writer)
+        private static void _addToLuceneIndex(Site site, IndexWriter writer)
         {
             // remove older index entry
-            var searchQuery = new TermQuery(new Term("CommentId", comment.Id.ToString()));
+            var searchQuery = new TermQuery(new Term("SiteId", site.Id.ToString()));
             writer.DeleteDocuments(searchQuery);
 
             // add new index entry
             var doc = new Document();
 
             // add lucene fields mapped to db fields
-            doc.Add(new Field("CommentId", comment.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-            doc.Add(new Field("Content", comment.Content, Field.Store.YES, Field.Index.ANALYZED));
+            doc.Add(new Field("SiteId", site.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+            doc.Add(new Field("SiteName", site.Name, Field.Store.YES, Field.Index.ANALYZED));
+            doc.Add(new Field("SiteDescription", site.Description, Field.Store.YES, Field.Index.ANALYZED));
 
             // add entry to index
             writer.AddDocument(doc);
         }
 
-        public static void AddUpdateLuceneIndex(IEnumerable<Comment> comments)
+        public static void AddUpdateLuceneIndex(IEnumerable<Site> sites)
         {
             // init lucene
             var analyzer = new StandardAnalyzer(Version.LUCENE_30);
             using (var writer = new IndexWriter(_directory, analyzer, IndexWriter.MaxFieldLength.UNLIMITED))
             {
                 // add data to lucene search index (replaces older entry if any)
-                foreach (var comment in comments)
+                foreach (var comment in sites)
                 {
                     _addToLuceneIndex(comment, writer);
                 }
@@ -50,35 +51,36 @@ namespace SiteBuilder.Lucene
             }
         }
 
-        public static void AddUpdateLuceneIndex(Comment comment)
+        public static void AddUpdateLuceneIndex(Site site)
         {
-            AddUpdateLuceneIndex(new List<Comment> { comment });
+            AddUpdateLuceneIndex(new List<Site> { site });
         }
 
-        private static Comment _mapLuceneDocumentToData(Document doc)
+        private static Site _mapLuceneDocumentToData(Document doc)
         {
-            return new Comment
+            return new Site
             {
-                Id = Convert.ToInt32(doc.Get("CommentId")),
-                Content = doc.Get("Content")
+                Id = Convert.ToInt32(doc.Get("SiteId")),
+                Name = doc.Get("SiteName"),
+                Description = doc.Get("SiteDescription")
             };
         }
 
-        private static IEnumerable<Comment> _mapLuceneToDataList(IEnumerable<Document> hits)
+        private static IEnumerable<Site> _mapLuceneToDataList(IEnumerable<Document> hits)
         {
             return hits.Select(_mapLuceneDocumentToData).ToList();
         }
 
-        private static IEnumerable<Comment> _mapLuceneToDataList(IEnumerable<ScoreDoc> hits,
+        private static IEnumerable<Site> _mapLuceneToDataList(IEnumerable<ScoreDoc> hits,
             IndexSearcher searcher)
         {
             return hits.Select(hit => _mapLuceneDocumentToData(searcher.Doc(hit.Doc))).ToList();
         }
 
-        private static IEnumerable<Comment> _search(string searchQuery, string searchField = "")
+        private static IEnumerable<Site> _search(string searchQuery, string searchField = "")
         {
             // validation
-            if (string.IsNullOrEmpty(searchQuery.Replace("*", "").Replace("?", ""))) return new List<Comment>();
+            if (string.IsNullOrEmpty(searchQuery.Replace("*", "").Replace("?", ""))) return new List<Site>();
 
             // set up lucene searcher
             using (var searcher = new IndexSearcher(_directory, false))
@@ -101,7 +103,7 @@ namespace SiteBuilder.Lucene
                 else
                 {
                     var parser = new MultiFieldQueryParser
-                        (Version.LUCENE_30, new[] { "CommentId", "Content" }, analyzer);
+                        (Version.LUCENE_30, new[] { "SiteId", "SiteName", "SiteDescription" }, analyzer);
                     var query = parseQuery(searchQuery, parser);
                     var hits = searcher.Search
                     (query, null, hits_limit, Sort.RELEVANCE).ScoreDocs;
@@ -113,9 +115,9 @@ namespace SiteBuilder.Lucene
             }
         }
 
-        public static IEnumerable<Comment> Search(string input, string fieldName = "")
+        public static IEnumerable<Site> Search(string input, string fieldName = "")
         {
-            if (string.IsNullOrEmpty(input)) return new List<Comment>();
+            if (string.IsNullOrEmpty(input)) return new List<Site>();
 
             var terms = input.Trim().Replace("-", " ").Split(' ')
                 .Where(x => !string.IsNullOrEmpty(x)).Select(x => x.Trim() + "*");
@@ -124,10 +126,10 @@ namespace SiteBuilder.Lucene
             return _search(input, fieldName);
         }
 
-        public static IEnumerable<Comment> GetAllIndexRecords()
+        public static IEnumerable<Site> GetAllIndexRecords()
         {
             // validate search index
-            if (!System.IO.Directory.EnumerateFiles(_luceneDir).Any()) return new List<Comment>();
+            if (!System.IO.Directory.EnumerateFiles(_luceneDir).Any()) return new List<Site>();
 
             // set up lucene searcher
             var searcher = new IndexSearcher(_directory, false);

@@ -217,6 +217,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -227,10 +228,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Lucene\LuceneGeneric.cs" />
     <Compile Include="Lucene\LuceneSearch.cs" />
     <Compile Include="Lucene\SearchComments.cs" />
+    <Compile Include="Lucene\SearchMarkdown.cs" />
     <Compile Include="Lucene\SearchPage.cs" />
+    <Compile Include="Lucene\SearchSites.cs" />
     <Compile Include="Lucene\SearchTags.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -907,7 +909,10 @@
     <Content Include="Views\SiteBuilder\ListPagesEdit.cshtml" />
     <Content Include="Views\SiteBuilder\EditPage.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\SiteBuilder\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
