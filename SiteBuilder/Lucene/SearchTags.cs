@@ -19,15 +19,15 @@ namespace SiteBuilder.Lucene
         private static void _addToLuceneIndex(Tag tag, IndexWriter writer)
         {
             // remove older index entry
-            var searchQuery = new TermQuery(new Term("Id", tag.Id.ToString()));
+            var searchQuery = new TermQuery(new Term("TagId", tag.Id.ToString()));
             writer.DeleteDocuments(searchQuery);
 
             // add new index entry
             var doc = new Document();
 
             // add lucene fields mapped to db fields
-            doc.Add(new Field("Id", tag.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-            doc.Add(new Field("Name", tag.Name, Field.Store.YES, Field.Index.ANALYZED));
+            doc.Add(new Field("TagId", tag.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+            doc.Add(new Field("TagName", tag.Name, Field.Store.YES, Field.Index.ANALYZED));
 
             // add entry to index
             writer.AddDocument(doc);
@@ -59,8 +59,8 @@ namespace SiteBuilder.Lucene
         {
             return new Tag
             {
-                Id = Convert.ToInt32(doc.Get("Id")),
-                Name = doc.Get("Name")
+                Id = Convert.ToInt32(doc.Get("TagId")),
+                Name = doc.Get("TagName")
             };
         }
 
@@ -101,7 +101,7 @@ namespace SiteBuilder.Lucene
                 else
                 {
                     var parser = new MultiFieldQueryParser
-                        (Version.LUCENE_30, new[] { "Id", "Name" }, analyzer);
+                        (Version.LUCENE_30, new[] { "TagId", "TagName" }, analyzer);
                     var query = parseQuery(searchQuery, parser);
                     var hits = searcher.Search
                     (query, null, hits_limit, Sort.RELEVANCE).ScoreDocs;

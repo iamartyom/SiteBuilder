@@ -230,7 +230,9 @@
     </Compile>
     <Compile Include="Lucene\LuceneSearch.cs" />
     <Compile Include="Lucene\SearchComments.cs" />
+    <Compile Include="Lucene\SearchMarkdown.cs" />
     <Compile Include="Lucene\SearchPage.cs" />
+    <Compile Include="Lucene\SearchSites.cs" />
     <Compile Include="Lucene\SearchTags.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
