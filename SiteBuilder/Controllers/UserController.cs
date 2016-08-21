@@ -33,7 +33,7 @@ namespace SiteBuilder.Controllers
             }
             else
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
         }
 

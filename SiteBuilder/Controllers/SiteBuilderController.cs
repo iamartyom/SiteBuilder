@@ -131,7 +131,7 @@ namespace SiteBuilder.Controllers
             }
             catch (System.ArgumentNullException)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound", "Error");
             }
             
             return View();
